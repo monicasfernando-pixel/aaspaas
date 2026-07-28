@@ -12,4 +12,16 @@ export type CatalogItem = {
   category: string;
   price: number;
   rating: number;
+  owned: boolean;
+  emoji: string;
 };
+
+export type CartItem = {
+  name: string;
+  category: string;
+  price: number;
+  qty: number;
+  viaAaspaas: boolean;
+};
+
+export type Screen = "home" | "search" | "cart" | "order";

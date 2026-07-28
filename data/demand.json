@@ -9,19 +9,19 @@
   },
   {
     "id": "cold-fever",
-    "category": "Cold & fever meds",
+    "category": "Pharmacy",
     "orders": 96,
     "window": "tonight",
-    "sentence": "Cold & fever meds are in demand — 96 orders tonight in Sector 47.",
+    "sentence": "Pharmacy is in demand — 96 cold & fever orders tonight in Sector 47.",
     "entryOffer": "First time trying this? Single strip ₹49 — smallest way in"
   },
   {
-    "id": "party",
-    "category": "Party snacks & mixers",
-    "orders": 178,
-    "window": "tonight",
-    "sentence": "Party snacks & mixers are buzzing — 178 orders tonight near you.",
-    "entryOffer": "First time trying this? Mini pack ₹49 — smallest way in"
+    "id": "home-cleaning",
+    "category": "Home cleaning",
+    "orders": 143,
+    "window": "this week",
+    "sentence": "Home cleaning is stocking up — 143 orders this week near you.",
+    "entryOffer": "First time trying this? Trial bottle ₹49 — smallest way in"
   },
   {
     "id": "pet",

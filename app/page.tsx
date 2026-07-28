@@ -7,7 +7,7 @@ export default function Home() {
         Your search bar knows what your neighbourhood is buying.
       </p>
 
-      <div className="relative h-[840px] w-[390px] overflow-hidden rounded-[2rem] border border-zinc-200 bg-white shadow-[0_20px_60px_rgba(0,0,0,0.12)]">
+      <div className="relative h-[926px] w-[428px] overflow-hidden rounded-[2rem] border border-zinc-200 bg-white shadow-[0_20px_60px_rgba(0,0,0,0.12)]">
         <PhoneSim />
       </div>
 
