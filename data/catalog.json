@@ -7,7 +7,14 @@
       "price": 68,
       "rating": 4.6,
       "owned": true,
-      "emoji": "🥛"
+      "emoji": "🥛",
+      "tags": [
+        "milk",
+        "dairy",
+        "toned milk",
+        "breakfast",
+        "tea"
+      ]
     },
     {
       "name": "Amul Butter 100g",
@@ -15,7 +22,14 @@
       "price": 58,
       "rating": 4.7,
       "owned": true,
-      "emoji": "🥛"
+      "emoji": "🥛",
+      "tags": [
+        "butter",
+        "dairy",
+        "spread",
+        "toast",
+        "cooking"
+      ]
     },
     {
       "name": "Mother Dairy Curd 400g",
@@ -23,7 +37,14 @@
       "price": 35,
       "rating": 4.5,
       "owned": true,
-      "emoji": "🍶"
+      "emoji": "🍶",
+      "tags": [
+        "curd",
+        "yogurt",
+        "dairy",
+        "probiotic",
+        "dahi"
+      ]
     },
     {
       "name": "Amul Cheese Slices",
@@ -31,7 +52,14 @@
       "price": 85,
       "rating": 4.5,
       "owned": true,
-      "emoji": "🥛"
+      "emoji": "🥛",
+      "tags": [
+        "cheese",
+        "dairy",
+        "sandwich",
+        "slices",
+        "burger"
+      ]
     },
     {
       "name": "Nestle Everyday Dairy Whitener",
@@ -39,7 +67,14 @@
       "price": 120,
       "rating": 4.4,
       "owned": true,
-      "emoji": "🥛"
+      "emoji": "🥛",
+      "tags": [
+        "milk powder",
+        "whitener",
+        "tea",
+        "coffee",
+        "dairy"
+      ]
     },
     {
       "name": "Epigamia Greek Yogurt",
@@ -47,7 +82,14 @@
       "price": 50,
       "rating": 4.6,
       "owned": true,
-      "emoji": "🍶"
+      "emoji": "🍶",
+      "tags": [
+        "yogurt",
+        "greek yogurt",
+        "protein",
+        "snack",
+        "dairy"
+      ]
     },
     {
       "name": "Amul Paneer 200g",
@@ -55,7 +97,14 @@
       "price": 95,
       "rating": 4.5,
       "owned": true,
-      "emoji": "🥛"
+      "emoji": "🥛",
+      "tags": [
+        "paneer",
+        "cottage cheese",
+        "dairy",
+        "curry",
+        "protein"
+      ]
     },
     {
       "name": "Amul Milk Shake Chocolate",
@@ -63,7 +112,14 @@
       "price": 30,
       "rating": 4.4,
       "owned": true,
-      "emoji": "🥛"
+      "emoji": "🥛",
+      "tags": [
+        "milkshake",
+        "chocolate drink",
+        "dairy",
+        "kids",
+        "cold drink"
+      ]
     },
     {
       "name": "Banana Robusta (6)",
@@ -71,7 +127,14 @@
       "price": 40,
       "rating": 4.3,
       "owned": true,
-      "emoji": "🍌"
+      "emoji": "🍌",
+      "tags": [
+        "banana",
+        "fruit",
+        "potassium",
+        "breakfast",
+        "snack"
+      ]
     },
     {
       "name": "Shimla Apple (4)",
@@ -79,7 +142,14 @@
       "price": 120,
       "rating": 4.5,
       "owned": true,
-      "emoji": "🍎"
+      "emoji": "🍎",
+      "tags": [
+        "apple",
+        "fruit",
+        "fresh fruit",
+        "snack",
+        "healthy"
+      ]
     },
     {
       "name": "Alphonso Mango (2)",
@@ -87,7 +157,14 @@
       "price": 180,
       "rating": 4.7,
       "owned": true,
-      "emoji": "🍎"
+      "emoji": "🍎",
+      "tags": [
+        "mango",
+        "fruit",
+        "alphonso",
+        "summer fruit",
+        "sweet"
+      ]
     },
     {
       "name": "Pomegranate (2)",
@@ -95,7 +172,14 @@
       "price": 90,
       "rating": 4.4,
       "owned": true,
-      "emoji": "🍎"
+      "emoji": "🍎",
+      "tags": [
+        "pomegranate",
+        "fruit",
+        "anar",
+        "juice fruit",
+        "antioxidant"
+      ]
     },
     {
       "name": "Tomato Local 500g",
@@ -103,7 +187,14 @@
       "price": 30,
       "rating": 4.2,
       "owned": true,
-      "emoji": "🥦"
+      "emoji": "🥦",
+      "tags": [
+        "tomato",
+        "vegetable",
+        "sabzi",
+        "salad",
+        "cooking"
+      ]
     },
     {
       "name": "Onion 1kg",
@@ -111,7 +202,14 @@
       "price": 40,
       "rating": 4.3,
       "owned": true,
-      "emoji": "🥦"
+      "emoji": "🥦",
+      "tags": [
+        "onion",
+        "vegetable",
+        "pyaz",
+        "cooking",
+        "kitchen staple"
+      ]
     },
     {
       "name": "Potato 1kg",
@@ -119,7 +217,14 @@
       "price": 35,
       "rating": 4.3,
       "owned": true,
-      "emoji": "🥦"
+      "emoji": "🥦",
+      "tags": [
+        "potato",
+        "vegetable",
+        "aloo",
+        "cooking",
+        "sabzi"
+      ]
     },
     {
       "name": "Coriander Bunch",
@@ -127,7 +232,14 @@
       "price": 15,
       "rating": 4.1,
       "owned": true,
-      "emoji": "🥦"
+      "emoji": "🥦",
+      "tags": [
+        "coriander",
+        "herbs",
+        "dhania",
+        "garnish",
+        "vegetable"
+      ]
     },
     {
       "name": "Farm Fresh Eggs (6)",
@@ -135,7 +247,14 @@
       "price": 48,
       "rating": 4.4,
       "owned": true,
-      "emoji": "🥚"
+      "emoji": "🥚",
+      "tags": [
+        "eggs",
+        "protein",
+        "breakfast",
+        "omelette",
+        "baking"
+      ]
     },
     {
       "name": "Britannia Brown Bread",
@@ -143,7 +262,14 @@
       "price": 50,
       "rating": 4.5,
       "owned": true,
-      "emoji": "🍞"
+      "emoji": "🍞",
+      "tags": [
+        "bread",
+        "brown bread",
+        "toast",
+        "sandwich",
+        "breakfast"
+      ]
     },
     {
       "name": "English Oven Multigrain",
@@ -151,7 +277,14 @@
       "price": 55,
       "rating": 4.4,
       "owned": true,
-      "emoji": "🍞"
+      "emoji": "🍞",
+      "tags": [
+        "bread",
+        "multigrain",
+        "toast",
+        "healthy bread",
+        "breakfast"
+      ]
     },
     {
       "name": "Modern White Bread",
@@ -159,7 +292,14 @@
       "price": 40,
       "rating": 4.3,
       "owned": true,
-      "emoji": "🍞"
+      "emoji": "🍞",
+      "tags": [
+        "bread",
+        "white bread",
+        "toast",
+        "sandwich",
+        "breakfast"
+      ]
     },
     {
       "name": "Eggs Cage Free (12)",
@@ -167,7 +307,14 @@
       "price": 95,
       "rating": 4.6,
       "owned": true,
-      "emoji": "🥚"
+      "emoji": "🥚",
+      "tags": [
+        "eggs",
+        "cage free",
+        "protein",
+        "breakfast",
+        "baking"
+      ]
     },
     {
       "name": "Pav Bun Pack (6)",
@@ -175,7 +322,14 @@
       "price": 35,
       "rating": 4.4,
       "owned": true,
-      "emoji": "🍞"
+      "emoji": "🍞",
+      "tags": [
+        "pav",
+        "bun",
+        "bread",
+        "vada pav",
+        "burger"
+      ]
     },
     {
       "name": "Aashirvaad Atta 5kg",
@@ -183,7 +337,14 @@
       "price": 270,
       "rating": 4.6,
       "owned": true,
-      "emoji": "🌾"
+      "emoji": "🌾",
+      "tags": [
+        "atta",
+        "flour",
+        "wheat",
+        "roti",
+        "staples"
+      ]
     },
     {
       "name": "India Gate Basmati 1kg",
@@ -191,7 +352,14 @@
       "price": 165,
       "rating": 4.5,
       "owned": true,
-      "emoji": "🌾"
+      "emoji": "🌾",
+      "tags": [
+        "rice",
+        "basmati",
+        "staples",
+        "biryani",
+        "grain"
+      ]
     },
     {
       "name": "Fortune Sunflower Oil 1L",
@@ -199,7 +367,14 @@
       "price": 145,
       "rating": 4.5,
       "owned": true,
-      "emoji": "🫒"
+      "emoji": "🫒",
+      "tags": [
+        "cooking oil",
+        "sunflower oil",
+        "oil",
+        "frying",
+        "staples"
+      ]
     },
     {
       "name": "Tata Sampann Toor Dal 1kg",
@@ -207,7 +382,14 @@
       "price": 180,
       "rating": 4.4,
       "owned": true,
-      "emoji": "🌾"
+      "emoji": "🌾",
+      "tags": [
+        "dal",
+        "toor dal",
+        "lentils",
+        "protein",
+        "staples"
+      ]
     },
     {
       "name": "Tata Salt 1kg",
@@ -215,7 +397,14 @@
       "price": 28,
       "rating": 4.7,
       "owned": true,
-      "emoji": "🌾"
+      "emoji": "🌾",
+      "tags": [
+        "salt",
+        "iodised salt",
+        "cooking",
+        "staples",
+        "kitchen"
+      ]
     },
     {
       "name": "Maggi 2-Minute Noodles",
@@ -223,7 +412,14 @@
       "price": 14,
       "rating": 4.6,
       "owned": true,
-      "emoji": "🌾"
+      "emoji": "🌾",
+      "tags": [
+        "noodles",
+        "maggi",
+        "instant food",
+        "snack",
+        "quick meal"
+      ]
     },
     {
       "name": "Tata Tea Gold 250g",
@@ -231,7 +427,14 @@
       "price": 145,
       "rating": 4.6,
       "owned": true,
-      "emoji": "🥤"
+      "emoji": "🥤",
+      "tags": [
+        "tea",
+        "chai",
+        "beverage",
+        "breakfast",
+        "leaves"
+      ]
     },
     {
       "name": "Sugar Free Flow 100g",
@@ -239,7 +442,14 @@
       "price": 99,
       "rating": 4.3,
       "owned": true,
-      "emoji": "🌾"
+      "emoji": "🌾",
+      "tags": [
+        "sweetener",
+        "sugar free",
+        "diet",
+        "tea",
+        "coffee"
+      ]
     },
     {
       "name": "Lay's India's Magic Masala",
@@ -247,7 +457,14 @@
       "price": 20,
       "rating": 4.5,
       "owned": true,
-      "emoji": "🍟"
+      "emoji": "🍟",
+      "tags": [
+        "chips",
+        "snacks",
+        "namkeen",
+        "crisps",
+        "party"
+      ]
     },
     {
       "name": "Kurkure Masala Munch",
@@ -255,7 +472,14 @@
       "price": 20,
       "rating": 4.4,
       "owned": true,
-      "emoji": "🍟"
+      "emoji": "🍟",
+      "tags": [
+        "kurkure",
+        "snacks",
+        "crunchy",
+        "namkeen",
+        "party"
+      ]
     },
     {
       "name": "Haldiram's Mixture",
@@ -263,7 +487,14 @@
       "price": 55,
       "rating": 4.6,
       "owned": true,
-      "emoji": "🍟"
+      "emoji": "🍟",
+      "tags": [
+        "mixture",
+        "namkeen",
+        "snacks",
+        "savoury",
+        "tea time"
+      ]
     },
     {
       "name": "Bingo Mad Angles",
@@ -271,7 +502,14 @@
       "price": 20,
       "rating": 4.3,
       "owned": true,
-      "emoji": "🍟"
+      "emoji": "🍟",
+      "tags": [
+        "chips",
+        "snacks",
+        "bingo",
+        "crisps",
+        "party"
+      ]
     },
     {
       "name": "Act II Butter Popcorn",
@@ -279,7 +517,14 @@
       "price": 30,
       "rating": 4.4,
       "owned": true,
-      "emoji": "🍟"
+      "emoji": "🍟",
+      "tags": [
+        "popcorn",
+        "snacks",
+        "movie snack",
+        "butter",
+        "party"
+      ]
     },
     {
       "name": "Britannia Bourbon Pack",
@@ -287,7 +532,14 @@
       "price": 30,
       "rating": 4.5,
       "owned": true,
-      "emoji": "🍟"
+      "emoji": "🍟",
+      "tags": [
+        "biscuits",
+        "chocolate biscuits",
+        "snacks",
+        "tea time",
+        "cookies"
+      ]
     },
     {
       "name": "Parle-G Gluco Biscuits",
@@ -295,7 +547,14 @@
       "price": 10,
       "rating": 4.6,
       "owned": true,
-      "emoji": "🍟"
+      "emoji": "🍟",
+      "tags": [
+        "biscuits",
+        "parle-g",
+        "snacks",
+        "tea time",
+        "glucose"
+      ]
     },
     {
       "name": "Uncle Chipps Spicy Treat",
@@ -303,7 +562,14 @@
       "price": 20,
       "rating": 4.3,
       "owned": true,
-      "emoji": "🍟"
+      "emoji": "🍟",
+      "tags": [
+        "chips",
+        "snacks",
+        "spicy",
+        "crisps",
+        "party"
+      ]
     },
     {
       "name": "Amul Vanilla Cup",
@@ -311,7 +577,14 @@
       "price": 35,
       "rating": 4.5,
       "owned": false,
-      "emoji": "🍦"
+      "emoji": "🍦",
+      "tags": [
+        "ice cream",
+        "vanilla",
+        "dessert",
+        "frozen",
+        "sweet"
+      ]
     },
     {
       "name": "Kwality Walls Cornetto",
@@ -319,7 +592,14 @@
       "price": 50,
       "rating": 4.4,
       "owned": false,
-      "emoji": "🍦"
+      "emoji": "🍦",
+      "tags": [
+        "ice cream",
+        "cornetto",
+        "cone",
+        "dessert",
+        "frozen"
+      ]
     },
     {
       "name": "Mother Dairy Choco Bar",
@@ -327,7 +607,14 @@
       "price": 40,
       "rating": 4.3,
       "owned": false,
-      "emoji": "🍦"
+      "emoji": "🍦",
+      "tags": [
+        "ice cream",
+        "chocolate",
+        "dessert",
+        "bar",
+        "frozen"
+      ]
     },
     {
       "name": "Havmor Cassata Slice",
@@ -335,7 +622,14 @@
       "price": 60,
       "rating": 4.6,
       "owned": false,
-      "emoji": "🍦"
+      "emoji": "🍦",
+      "tags": [
+        "ice cream",
+        "cassata",
+        "dessert",
+        "slice",
+        "frozen"
+      ]
     },
     {
       "name": "Baskin Robbins Scoop Pack",
@@ -343,7 +637,14 @@
       "price": 149,
       "rating": 4.7,
       "owned": false,
-      "emoji": "🍦"
+      "emoji": "🍦",
+      "tags": [
+        "ice cream",
+        "premium",
+        "dessert",
+        "scoop",
+        "frozen"
+      ]
     },
     {
       "name": "Amul Butterscotch Tub 500ml",
@@ -351,7 +652,14 @@
       "price": 120,
       "rating": 4.5,
       "owned": false,
-      "emoji": "🍦"
+      "emoji": "🍦",
+      "tags": [
+        "ice cream",
+        "butterscotch",
+        "tub",
+        "dessert",
+        "frozen"
+      ]
     },
     {
       "name": "Magnum Almond",
@@ -359,7 +667,14 @@
       "price": 80,
       "rating": 4.6,
       "owned": false,
-      "emoji": "🍦"
+      "emoji": "🍦",
+      "tags": [
+        "ice cream",
+        "magnum",
+        "almond",
+        "dessert",
+        "premium"
+      ]
     },
     {
       "name": "Vadilal Rajbhog Cup",
@@ -367,7 +682,14 @@
       "price": 45,
       "rating": 4.4,
       "owned": false,
-      "emoji": "🍦"
+      "emoji": "🍦",
+      "tags": [
+        "ice cream",
+        "rajbhog",
+        "dessert",
+        "indian",
+        "frozen"
+      ]
     },
     {
       "name": "Crocin Advance Strip",
@@ -375,7 +697,14 @@
       "price": 30,
       "rating": 4.6,
       "owned": false,
-      "emoji": "💊"
+      "emoji": "💊",
+      "tags": [
+        "fever",
+        "cold",
+        "headache",
+        "paracetamol",
+        "medicine"
+      ]
     },
     {
       "name": "Dolo 650 Strip",
@@ -383,7 +712,14 @@
       "price": 35,
       "rating": 4.7,
       "owned": false,
-      "emoji": "💊"
+      "emoji": "💊",
+      "tags": [
+        "fever",
+        "pain relief",
+        "paracetamol",
+        "headache",
+        "medicine"
+      ]
     },
     {
       "name": "Vicks VapoRub 25ml",
@@ -391,7 +727,14 @@
       "price": 99,
       "rating": 4.5,
       "owned": false,
-      "emoji": "💊"
+      "emoji": "💊",
+      "tags": [
+        "cold",
+        "cough",
+        "congestion",
+        "vapour rub",
+        "medicine"
+      ]
     },
     {
       "name": "Benadryl Cough Syrup",
@@ -399,7 +742,14 @@
       "price": 115,
       "rating": 4.3,
       "owned": false,
-      "emoji": "💊"
+      "emoji": "💊",
+      "tags": [
+        "cough",
+        "syrup",
+        "cold",
+        "throat",
+        "medicine"
+      ]
     },
     {
       "name": "Strepsils Honey Lemon",
@@ -407,7 +757,14 @@
       "price": 40,
       "rating": 4.4,
       "owned": false,
-      "emoji": "💊"
+      "emoji": "💊",
+      "tags": [
+        "sore throat",
+        "lozenges",
+        "cold",
+        "cough",
+        "medicine"
+      ]
     },
     {
       "name": "Cetirizine 10mg Strip",
@@ -415,7 +772,14 @@
       "price": 18,
       "rating": 4.5,
       "owned": false,
-      "emoji": "💊"
+      "emoji": "💊",
+      "tags": [
+        "allergy",
+        "antihistamine",
+        "itching",
+        "cold",
+        "medicine"
+      ]
     },
     {
       "name": "Volini Gel 30g",
@@ -423,7 +787,14 @@
       "price": 125,
       "rating": 4.4,
       "owned": false,
-      "emoji": "💊"
+      "emoji": "💊",
+      "tags": [
+        "pain relief",
+        "muscle pain",
+        "sprain",
+        "gel",
+        "medicine"
+      ]
     },
     {
       "name": "Digene Gel Mint",
@@ -431,7 +802,14 @@
       "price": 85,
       "rating": 4.3,
       "owned": false,
-      "emoji": "💊"
+      "emoji": "💊",
+      "tags": [
+        "acidity",
+        "antacid",
+        "digestion",
+        "gas",
+        "medicine"
+      ]
     },
     {
       "name": "Pedigree Adult 1kg",
@@ -439,7 +817,14 @@
       "price": 220,
       "rating": 4.6,
       "owned": false,
-      "emoji": "🐕"
+      "emoji": "🐕",
+      "tags": [
+        "dog food",
+        "pet food",
+        "puppy",
+        "dry food",
+        "kibble"
+      ]
     },
     {
       "name": "Whiskas Tuna Pouch",
@@ -447,7 +832,14 @@
       "price": 45,
       "rating": 4.5,
       "owned": false,
-      "emoji": "🐕"
+      "emoji": "🐕",
+      "tags": [
+        "cat food",
+        "pet food",
+        "tuna",
+        "wet food",
+        "kitten"
+      ]
     },
     {
       "name": "Drools Chicken & Egg 1kg",
@@ -455,7 +847,14 @@
       "price": 199,
       "rating": 4.4,
       "owned": false,
-      "emoji": "🐕"
+      "emoji": "🐕",
+      "tags": [
+        "dog food",
+        "pet food",
+        "dry food",
+        "chicken",
+        "kibble"
+      ]
     },
     {
       "name": "Pet Collar Adjustable",
@@ -463,7 +862,14 @@
       "price": 149,
       "rating": 4.2,
       "owned": false,
-      "emoji": "🐕"
+      "emoji": "🐕",
+      "tags": [
+        "pet collar",
+        "dog collar",
+        "accessories",
+        "pet supplies",
+        "leash gear"
+      ]
     },
     {
       "name": "Cat Litter 5kg",
@@ -471,7 +877,14 @@
       "price": 320,
       "rating": 4.3,
       "owned": false,
-      "emoji": "🐕"
+      "emoji": "🐕",
+      "tags": [
+        "cat litter",
+        "pet supplies",
+        "litter box",
+        "cats",
+        "hygiene"
+      ]
     },
     {
       "name": "Dog Chew Bone Pack",
@@ -479,7 +892,14 @@
       "price": 99,
       "rating": 4.4,
       "owned": false,
-      "emoji": "🐕"
+      "emoji": "🐕",
+      "tags": [
+        "dog treats",
+        "chew",
+        "pet snacks",
+        "bones",
+        "dog food"
+      ]
     },
     {
       "name": "Me-O Kitten Food 450g",
@@ -487,7 +907,14 @@
       "price": 175,
       "rating": 4.5,
       "owned": false,
-      "emoji": "🐕"
+      "emoji": "🐕",
+      "tags": [
+        "kitten food",
+        "cat food",
+        "pet food",
+        "dry food",
+        "cats"
+      ]
     },
     {
       "name": "Pet Shampoo 200ml",
@@ -495,7 +922,14 @@
       "price": 180,
       "rating": 4.3,
       "owned": false,
-      "emoji": "🐕"
+      "emoji": "🐕",
+      "tags": [
+        "pet shampoo",
+        "dog bath",
+        "grooming",
+        "pet care",
+        "hygiene"
+      ]
     },
     {
       "name": "Pampers Baby Dry S (20)",
@@ -503,7 +937,14 @@
       "price": 299,
       "rating": 4.5,
       "owned": false,
-      "emoji": "🍼"
+      "emoji": "🍼",
+      "tags": [
+        "diapers",
+        "baby care",
+        "nappies",
+        "infant",
+        "pampers"
+      ]
     },
     {
       "name": "Huggies Wonder Pants M",
@@ -511,7 +952,14 @@
       "price": 349,
       "rating": 4.4,
       "owned": false,
-      "emoji": "🍼"
+      "emoji": "🍼",
+      "tags": [
+        "diapers",
+        "baby pants",
+        "nappies",
+        "infant",
+        "baby care"
+      ]
     },
     {
       "name": "Johnson's Baby Soap",
@@ -519,7 +967,14 @@
       "price": 65,
       "rating": 4.6,
       "owned": false,
-      "emoji": "🍼"
+      "emoji": "🍼",
+      "tags": [
+        "baby soap",
+        "bath",
+        "infant",
+        "gentle soap",
+        "baby care"
+      ]
     },
     {
       "name": "Himalaya Baby Lotion 200ml",
@@ -527,7 +982,14 @@
       "price": 175,
       "rating": 4.5,
       "owned": false,
-      "emoji": "🍼"
+      "emoji": "🍼",
+      "tags": [
+        "baby lotion",
+        "moisturiser",
+        "infant",
+        "skin care",
+        "baby care"
+      ]
     },
     {
       "name": "Cerelac Wheat Apple 300g",
@@ -535,7 +997,14 @@
       "price": 255,
       "rating": 4.4,
       "owned": false,
-      "emoji": "🍼"
+      "emoji": "🍼",
+      "tags": [
+        "baby food",
+        "cerelac",
+        "cereal",
+        "weaning",
+        "infant"
+      ]
     },
     {
       "name": "Baby Wipes Soft Pack",
@@ -543,7 +1012,14 @@
       "price": 99,
       "rating": 4.3,
       "owned": false,
-      "emoji": "🍼"
+      "emoji": "🍼",
+      "tags": [
+        "baby wipes",
+        "wipes",
+        "diapering",
+        "infant",
+        "hygiene"
+      ]
     },
     {
       "name": "Harpic Power Plus 1L",
@@ -551,7 +1027,14 @@
       "price": 185,
       "rating": 4.6,
       "owned": false,
-      "emoji": "🧴"
+      "emoji": "🧴",
+      "tags": [
+        "toilet cleaner",
+        "bathroom",
+        "disinfectant",
+        "cleaning",
+        "harpic"
+      ]
     },
     {
       "name": "Lizol Disinfectant 975ml",
@@ -559,7 +1042,14 @@
       "price": 199,
       "rating": 4.5,
       "owned": false,
-      "emoji": "🧴"
+      "emoji": "🧴",
+      "tags": [
+        "floor cleaner",
+        "disinfectant",
+        "lizol",
+        "home cleaning",
+        "germ kill"
+      ]
     },
     {
       "name": "Vim Dishwash Gel 750ml",
@@ -567,7 +1057,14 @@
       "price": 145,
       "rating": 4.5,
       "owned": false,
-      "emoji": "🧴"
+      "emoji": "🧴",
+      "tags": [
+        "dishwash",
+        "kitchen",
+        "soap",
+        "utensils",
+        "cleaning"
+      ]
     },
     {
       "name": "Surf Excel Matic 1kg",
@@ -575,7 +1072,14 @@
       "price": 220,
       "rating": 4.6,
       "owned": false,
-      "emoji": "🧴"
+      "emoji": "🧴",
+      "tags": [
+        "detergent",
+        "laundry",
+        "washing powder",
+        "clothes",
+        "cleaning"
+      ]
     },
     {
       "name": "Colin Glass Cleaner 500ml",
@@ -583,7 +1087,14 @@
       "price": 99,
       "rating": 4.4,
       "owned": false,
-      "emoji": "🧴"
+      "emoji": "🧴",
+      "tags": [
+        "glass cleaner",
+        "windows",
+        "spray",
+        "shine",
+        "cleaning"
+      ]
     },
     {
       "name": "Scotch-Brite Scrub Pad (3)",
@@ -591,7 +1102,14 @@
       "price": 45,
       "rating": 4.3,
       "owned": false,
-      "emoji": "🧴"
+      "emoji": "🧴",
+      "tags": [
+        "scrubber",
+        "kitchen",
+        "utensils",
+        "cleaning",
+        "pad"
+      ]
     },
     {
       "name": "Domex Floor Cleaner 1L",
@@ -599,7 +1117,14 @@
       "price": 165,
       "rating": 4.4,
       "owned": false,
-      "emoji": "🧴"
+      "emoji": "🧴",
+      "tags": [
+        "floor cleaner",
+        "disinfectant",
+        "home cleaning",
+        "bathroom",
+        "germs"
+      ]
     },
     {
       "name": "Hit Flying Insect Killer",
@@ -607,7 +1132,14 @@
       "price": 189,
       "rating": 4.5,
       "owned": false,
-      "emoji": "🧴"
+      "emoji": "🧴",
+      "tags": [
+        "insect killer",
+        "mosquito",
+        "spray",
+        "pest control",
+        "hit"
+      ]
     }
   ]
 }

@@ -14,6 +14,7 @@ export type CatalogItem = {
   rating: number;
   owned: boolean;
   emoji: string;
+  tags: string[];
 };
 
 export type CartItem = {

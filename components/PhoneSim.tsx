@@ -632,25 +632,24 @@ export default function PhoneSim() {
                             Notify me when we stock it
                           </button>
 
-                          {!netResult.error && (
-                            <details className="rounded-xl bg-white px-3 py-2 text-[12px] text-[#7E8794] shadow-sm">
-                              <summary className="cursor-pointer font-medium text-[#1C1C1C]">
-                                How this worked
-                              </summary>
-                              <div className="mt-2 space-y-1 leading-snug">
-                                <p>
-                                  Intent: {netResult.intent || "—"}
-                                </p>
-                                <p>
-                                  Catalog items searched:{" "}
-                                  {netResult.catalogSize ?? catalog.length}
-                                </p>
-                                <p>
-                                  Confidence: {netResult.confidence ?? "low"}
-                                </p>
-                              </div>
-                            </details>
-                          )}
+                          <details className="rounded-xl bg-white px-3 py-2 text-[12px] text-[#7E8794] shadow-sm">
+                            <summary className="cursor-pointer font-medium text-[#1C1C1C]">
+                              How this worked
+                            </summary>
+                            <div className="mt-2 space-y-1 leading-snug">
+                              <p>Intent: {netResult.intent || "—"}</p>
+                              <p>
+                                Catalog items searched:{" "}
+                                {netResult.catalogSize ?? catalog.length}
+                              </p>
+                              <p>
+                                Confidence:{" "}
+                                {netResult.error
+                                  ? "low"
+                                  : (netResult.confidence ?? "low")}
+                              </p>
+                            </div>
+                          </details>
                         </>
                       );
                     })()}

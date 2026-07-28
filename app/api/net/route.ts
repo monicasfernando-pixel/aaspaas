@@ -10,6 +10,7 @@ type CatalogFile = {
     rating: number;
     owned: boolean;
     emoji: string;
+    tags: string[];
   }>;
 };
 
@@ -41,13 +42,18 @@ export async function POST(request: Request) {
           role: "user",
           content: `A shopper's search returned no results. Their failed query was: "${query}"
 
-Here is the full product catalog as JSON:
+Here is the full product catalog as JSON (each product includes plain-language "tags" describing use):
 ${catalogJson}
 
 Return ONLY a JSON object — no prose, no markdown fences — with this exact shape:
 {"intent": "one line describing what the user actually wanted", "substitutes": [{"name": "exact product name from catalog", "why": "one short line on why this is a reasonable alternative"}], "confidence": "high" | "low"}
 
-Critical constraint: substitutes must be chosen ONLY from the products in the provided catalog. Use the exact product name string from the catalog. If no reasonable alternative exists in the catalog, return an empty substitutes array and "confidence": "low". Never invent a product that is not in the catalog.`,
+Matching rules:
+- Use product names, categories, AND tags to understand what each item is for.
+- Return confidence: "high" and suggest substitutes whenever a product in the catalog could reasonably serve the same need, even if the wording differs from the query (e.g. "paracetamol" → fever/cold medicines; "dog food" → pet food items).
+- Prefer 2–4 strong substitutes when the need is covered.
+- Reserve confidence: "low" and an empty substitutes array only when genuinely nothing in the catalog serves that need — e.g. bulk/wholesale quantities we don't stock, or a product category absent entirely.
+- substitutes must be chosen ONLY from the products in the provided catalog. Use the exact product name string from the catalog. Never invent a product that is not in the catalog.`,
         },
       ],
     });
