@@ -205,6 +205,7 @@ export default function PhoneSim() {
   const [toast, setToast] = useState<string | null>(null);
   const [orderDiscovery, setOrderDiscovery] = useState<string | null>(null);
   const [netLoading, setNetLoading] = useState(false);
+  const [netLogged, setNetLogged] = useState(false);
   const [netResult, setNetResult] = useState<{
     error?: boolean;
     intent?: string;
@@ -235,11 +236,13 @@ export default function PhoneSim() {
     if (!q || matches.length > 0) {
       setNetLoading(false);
       setNetResult(null);
+      setNetLogged(false);
       return;
     }
     let cancelled = false;
     setNetLoading(true);
     setNetResult(null);
+    setNetLogged(false);
     fetch("/api/net", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -316,6 +319,7 @@ export default function PhoneSim() {
     setRecents(RECENT);
     setNetLoading(false);
     setNetResult(null);
+    setNetLogged(false);
   }
 
   return (
@@ -624,13 +628,26 @@ export default function PhoneSim() {
 
                           <button
                             type="button"
-                            onClick={() =>
-                              console.log("Notify me when we stock it:", query.trim())
-                            }
+                            onClick={() => {
+                              console.log(
+                                showCards
+                                  ? "Not quite it feedback:"
+                                  : "Notify me when we stock it:",
+                                query.trim(),
+                              );
+                              setNetLogged(true);
+                            }}
                             className="w-full rounded-xl border border-[#0C831F] bg-white py-2.5 text-[13px] font-semibold text-[#0C831F]"
                           >
-                            Notify me when we stock it
+                            {showCards
+                              ? "Not quite it? Tell us what you wanted"
+                              : "Notify me when we stock it"}
                           </button>
+                          {netLogged && (
+                            <p className="text-center text-[12px] text-[#7E8794]">
+                              Logged — we&apos;ll use this to expand our catalogue.
+                            </p>
+                          )}
 
                           <details className="rounded-xl bg-white px-3 py-2 text-[12px] text-[#7E8794] shadow-sm">
                             <summary className="cursor-pointer font-medium text-[#1C1C1C]">
