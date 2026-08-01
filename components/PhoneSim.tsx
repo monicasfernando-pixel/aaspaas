@@ -262,7 +262,7 @@ function BottomNav({
   onCart: () => void;
 }) {
   return (
-    <div className="shrink-0 border-t border-zinc-100 bg-white px-2 pb-3 pt-1.5">
+    <div className="mt-auto shrink-0 border-t border-zinc-100 bg-white px-2 pb-3 pt-1.5">
       <div className="flex items-center justify-around">
         {[
           { id: "home", label: "Home", onClick: onHome },
@@ -493,7 +493,7 @@ export default function PhoneSim() {
     <div className="relative isolate flex h-full w-full flex-col overflow-hidden bg-[#FAF7EC] text-[#1C1C1C]">
       {/* —— HOME —— */}
       {screen === "home" && (
-        <>
+        <div className="flex min-h-0 flex-1 flex-col">
           <Header />
           <div className="min-h-0 flex-1 overflow-y-auto px-3.5 pb-3 pt-3">
             <button
@@ -567,12 +567,12 @@ export default function PhoneSim() {
             onHome={() => setScreen("home")}
             onCart={() => setScreen("cart")}
           />
-        </>
+        </div>
       )}
 
       {/* —— SEARCH —— */}
       {screen === "search" && (
-        <>
+        <div className="flex min-h-0 flex-1 flex-col">
           <Header />
           <div className="shrink-0 bg-[#FAF7EC] px-3.5 pt-3">
             <div className="flex items-center gap-2">
@@ -598,11 +598,7 @@ export default function PhoneSim() {
             </div>
           </div>
 
-          <div
-            className={`min-h-0 flex-1 overflow-y-auto px-3.5 pt-4 ${
-              showKeyboard ? "pb-4" : "pb-20"
-            }`}
-          >
+          <div className="min-h-0 flex-1 overflow-y-auto px-3.5 pb-4 pt-4">
             {!q && (
               <>
                 <section>
@@ -885,14 +881,14 @@ export default function PhoneSim() {
           </div>
 
           {cartCount > 0 && !showKeyboard && (
-            <div className="pointer-events-none absolute inset-x-0 bottom-4 z-30 flex justify-center">
+            <div className="mt-auto shrink-0 bg-gradient-to-t from-[#FAF7EC] via-[#FAF7EC] to-transparent px-3.5 pb-3 pt-2">
               <button
                 type="button"
                 onClick={() => {
                   setActiveDemand(null);
                   setScreen("cart");
                 }}
-                className="pointer-events-auto flex items-center gap-2 rounded-full bg-[#1C1C1C] px-5 py-2.5 text-[13px] font-medium text-white shadow-lg"
+                className="mx-auto flex items-center gap-2 rounded-full bg-[#1C1C1C] px-5 py-2.5 text-[13px] font-medium text-white shadow-lg"
               >
                 <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#F8CB46] text-[11px] font-bold text-[#1C1C1C]">
                   {cartCount}
@@ -913,12 +909,12 @@ export default function PhoneSim() {
               onAdjust={(p, delta) => adjustCart(p, delta, true)}
             />
           )}
-        </>
+        </div>
       )}
 
       {/* —— CHECKOUT —— */}
       {screen === "cart" && (
-        <>
+        <div className="flex min-h-0 flex-1 flex-col">
           <div className="flex shrink-0 items-center gap-2 bg-white px-3.5 pb-3 pt-4">
             <button
               type="button"
@@ -1009,7 +1005,7 @@ export default function PhoneSim() {
             )}
           </div>
           {cart.length > 0 && (
-            <div className="shrink-0 border-t border-zinc-100 bg-white px-3.5 pb-4 pt-2.5">
+            <div className="mt-auto shrink-0 border-t border-zinc-100 bg-white px-3.5 pb-4 pt-2.5">
               <p className="mb-2 text-[12px] text-[#7E8794]">
                 Delivering to home · Flat 43
               </p>
@@ -1023,7 +1019,7 @@ export default function PhoneSim() {
               </button>
             </div>
           )}
-        </>
+        </div>
       )}
 
       {/* —— ORDER PLACED —— */}
