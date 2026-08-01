@@ -1,8 +1,19 @@
+export type DemandContext =
+  | "late_night"
+  | "morning"
+  | "evening"
+  | "rainy"
+  | "festival"
+  | "always";
+
 export type DemandItem = {
   id: string;
   category: string;
   orders: number;
   window: string;
+  top_product: string;
+  context: DemandContext[];
+  triggers: string[];
   sentence: string;
   entryOffer: string;
 };
@@ -23,6 +34,7 @@ export type CartItem = {
   price: number;
   qty: number;
   viaAaspaas: boolean;
+  emoji: string;
 };
 
 export type Screen = "home" | "search" | "cart" | "order";

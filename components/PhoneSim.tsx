@@ -1,11 +1,14 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import demandData from "@/data/demand.json";
 import catalogData from "@/data/catalog.json";
+import AddOrStepper from "./AddOrStepper";
 import BottomSheet from "./BottomSheet";
+import IosKeyboard from "./IosKeyboard";
 import type {
   DemandItem,
+  DemandContext,
   CatalogItem,
   CartItem,
   Screen,
@@ -13,6 +16,62 @@ import type {
 
 const demand = demandData as DemandItem[];
 const catalog = (catalogData as { products: CatalogItem[] }).products;
+
+type SimulateMode = "late_night" | "rainy" | "festival" | "morning" | null;
+
+const SIMULATE_OPTIONS: { id: NonNullable<SimulateMode>; label: string }[] = [
+  { id: "late_night", label: "🌙 Late night" },
+  { id: "rainy", label: "🌧 Rainy" },
+  { id: "festival", label: "🎉 Festival" },
+  { id: "morning", label: "☀️ Morning" },
+];
+
+function contextsFromHour(hour: number): DemandContext[] {
+  if (hour >= 22 || hour < 5) return ["late_night"];
+  if (hour >= 5 && hour < 12) return ["morning"];
+  if (hour >= 17 && hour < 22) return ["evening"];
+  return [];
+}
+
+function rankDemand(
+  items: DemandItem[],
+  active: DemandContext[],
+  limit = 4,
+): DemandItem[] {
+  const scored = items.map((item, index) => {
+    const match =
+      item.context.includes("always") ||
+      item.context.some((c) => active.includes(c));
+    return { item, match, index };
+  });
+  scored.sort((a, b) => {
+    if (a.match !== b.match) return a.match ? -1 : 1;
+    if (b.item.orders !== a.item.orders) return b.item.orders - a.item.orders;
+    return a.index - b.index;
+  });
+  return scored.slice(0, limit).map((s) => s.item);
+}
+
+function triggerMatchesQuery(triggers: string[], q: string): boolean {
+  return triggers.some(
+    (t) => q === t || q.startsWith(`${t} `) || q.startsWith(t),
+  );
+}
+
+function findTypedDemand(items: DemandItem[], q: string): DemandItem | null {
+  if (!q) return null;
+  const hits = items.filter((d) => triggerMatchesQuery(d.triggers, q));
+  if (!hits.length) return null;
+  return [...hits].sort((a, b) => b.orders - a.orders)[0];
+}
+
+function demandRowLabel(d: DemandItem) {
+  return `${d.category} · ${d.orders} orders ${d.window} — ${d.top_product} leading`;
+}
+
+function emojiForCategory(category: string) {
+  return catalog.find((p) => p.category === category)?.emoji ?? "✦";
+}
 
 const RECENT = ["dosa ma", "banan", "oil", "dosa batter", "milk"];
 const TOP_PICKS = catalog.filter((p) => p.owned).slice(0, 6);
@@ -77,11 +136,17 @@ function HighlightMatch({ text, query }: { text: string; query: string }) {
 
 function ProductCard({
   product,
+  qty,
   onAdd,
+  onInc,
+  onDec,
   why,
 }: {
   product: CatalogItem;
-  onAdd?: () => void;
+  qty: number;
+  onAdd: () => void;
+  onInc: () => void;
+  onDec: () => void;
   why?: string;
 }) {
   const mrp = Math.round(product.price * 1.25);
@@ -96,13 +161,13 @@ function ProductCard({
         />
         <div className="flex items-center justify-between gap-1 px-2 py-1.5">
           <span className="text-[11px] text-[#1C1C1C]">1 pc</span>
-          <button
-            type="button"
-            onClick={onAdd}
-            className="rounded-lg border-[1.5px] border-[#0C831F] px-3 py-0.5 text-[12px] font-bold uppercase text-[#0C831F]"
-          >
-            ADD
-          </button>
+          <AddOrStepper
+            qty={qty}
+            onAdd={onAdd}
+            onInc={onInc}
+            onDec={onDec}
+            variant="card"
+          />
         </div>
       </div>
       <div className="mt-1.5 space-y-0.5 px-0.5">
@@ -213,9 +278,23 @@ export default function PhoneSim() {
     confidence?: "high" | "low";
     catalogSize?: number;
   } | null>(null);
+  const [simulate, setSimulate] = useState<SimulateMode>(null);
+  const searchInputRef = useRef<HTMLInputElement>(null);
 
   const cartCount = cart.reduce((n, i) => n + i.qty, 0);
+  // Search screen keeps the keyboard up (focused empty/typing); hide for sheet / other screens.
+  const showKeyboard = screen === "search" && !activeDemand;
   const cartTotal = cart.reduce((n, i) => n + i.price * i.qty, 0);
+
+  const activeContexts = useMemo<DemandContext[]>(() => {
+    if (simulate) return [simulate];
+    return contextsFromHour(new Date().getHours());
+  }, [simulate]);
+
+  const rankedDemand = useMemo(
+    () => rankDemand(demand, activeContexts, 4),
+    [activeContexts],
+  );
 
   const q = query.trim().toLowerCase();
   const matches = useMemo(
@@ -223,8 +302,7 @@ export default function PhoneSim() {
       q ? catalog.filter((p) => p.name.toLowerCase().includes(q)).slice(0, 8) : [],
     [q],
   );
-  const showIceHint = q.startsWith("ice");
-  const iceDemand = demand.find((d) => d.id === "ice-cream")!;
+  const typedDemand = useMemo(() => findTypedDemand(demand, q), [q]);
 
   useEffect(() => {
     if (!toast) return;
@@ -267,6 +345,12 @@ export default function PhoneSim() {
     setActiveDemand(item);
   }
 
+  useEffect(() => {
+    if (screen === "search" && !activeDemand) {
+      searchInputRef.current?.focus();
+    }
+  }, [screen, activeDemand]);
+
   function productsFor(item: DemandItem) {
     return catalog.filter((p) => p.category === item.category);
   }
@@ -276,13 +360,26 @@ export default function PhoneSim() {
     setActiveDemand(null);
   }
 
-  function addToCart(product: CatalogItem, viaAaspaas: boolean) {
+  function qtyOf(name: string) {
+    return cart.find((i) => i.name === name)?.qty ?? 0;
+  }
+
+  function adjustCart(product: CatalogItem, delta: number, viaAaspaas: boolean) {
     setCart((prev) => {
       const hit = prev.find((i) => i.name === product.name);
+      const nextQty = (hit?.qty ?? 0) + delta;
+      if (nextQty <= 0) {
+        return prev.filter((i) => i.name !== product.name);
+      }
       if (hit) {
         return prev.map((i) =>
           i.name === product.name
-            ? { ...i, qty: i.qty + 1, viaAaspaas: i.viaAaspaas || viaAaspaas }
+            ? {
+                ...i,
+                qty: nextQty,
+                viaAaspaas: i.viaAaspaas || viaAaspaas,
+                emoji: i.emoji || product.emoji,
+              }
             : i,
         );
       }
@@ -292,14 +389,39 @@ export default function PhoneSim() {
           name: product.name,
           category: product.category,
           price: product.price,
-          qty: 1,
+          qty: nextQty,
           viaAaspaas,
+          emoji: product.emoji,
         },
       ];
     });
-    if (viaAaspaas) {
+    if (delta > 0 && viaAaspaas && qtyOf(product.name) === 0) {
       setToast("Added — first time from this category");
     }
+  }
+
+  function adjustCartItem(item: CartItem, delta: number) {
+    const product = catalog.find((p) => p.name === item.name);
+    if (product) {
+      adjustCart(product, delta, item.viaAaspaas);
+      return;
+    }
+    setCart((prev) => {
+      const nextQty = item.qty + delta;
+      if (nextQty <= 0) return prev.filter((i) => i.name !== item.name);
+      return prev.map((i) =>
+        i.name === item.name ? { ...i, qty: nextQty } : i,
+      );
+    });
+  }
+
+  function cartControls(product: CatalogItem, viaAaspaas: boolean) {
+    return {
+      qty: qtyOf(product.name),
+      onAdd: () => adjustCart(product, 1, viaAaspaas),
+      onInc: () => adjustCart(product, 1, viaAaspaas),
+      onDec: () => adjustCart(product, -1, viaAaspaas),
+    };
   }
 
   function placeOrder() {
@@ -320,6 +442,7 @@ export default function PhoneSim() {
     setNetLoading(false);
     setNetResult(null);
     setNetLogged(false);
+    setSimulate(null);
   }
 
   return (
@@ -420,6 +543,7 @@ export default function PhoneSim() {
                 ‹
               </button>
               <input
+                ref={searchInputRef}
                 value={query}
                 onChange={(e) => onQueryChange(e.target.value)}
                 autoFocus
@@ -429,18 +553,49 @@ export default function PhoneSim() {
             </div>
           </div>
 
-          <div className="min-h-0 flex-1 overflow-y-auto px-3.5 pb-20 pt-4">
+          <div
+            className={`min-h-0 flex-1 overflow-y-auto px-3.5 pt-4 ${
+              showKeyboard ? "pb-4" : "pb-20"
+            }`}
+          >
             {!q && (
               <>
                 <section>
                   <h2 className="text-[18px] font-bold leading-snug text-[#1C1C1C]">
                     ✦ Aaspaas · Around you right now — Sector 47
                   </h2>
-                  <p className="mb-3 mt-1 text-[12px] text-[#7E8794]">
+                  <p className="mb-2 mt-1 text-[12px] text-[#7E8794]">
                     AI-picked from live neighbourhood demand
                   </p>
+                  <p className="mb-3 flex flex-wrap items-center gap-x-1 gap-y-1 text-[11px] text-[#7E8794]">
+                    <span>Simulate:</span>
+                    {SIMULATE_OPTIONS.map((opt, i) => (
+                      <span key={opt.id} className="inline-flex items-center">
+                        {i > 0 && (
+                          <span className="mx-1 text-[#C5CAD1]" aria-hidden>
+                            ·
+                          </span>
+                        )}
+                        <button
+                          type="button"
+                          onClick={() =>
+                            setSimulate((prev) =>
+                              prev === opt.id ? null : opt.id,
+                            )
+                          }
+                          className={
+                            simulate === opt.id
+                              ? "font-semibold text-[#0C831F]"
+                              : "hover:text-[#1C1C1C]"
+                          }
+                        >
+                          {opt.label}
+                        </button>
+                      </span>
+                    ))}
+                  </p>
                   <ul className="space-y-2">
-                    {demand.map((d) => (
+                    {rankedDemand.map((d) => (
                       <li key={d.id}>
                         <button
                           type="button"
@@ -448,7 +603,7 @@ export default function PhoneSim() {
                           className="w-full rounded-2xl bg-white px-3 py-3 text-left shadow-sm"
                         >
                           <p className="text-[13px] font-semibold text-[#1C1C1C]">
-                            {d.category} · {d.orders} orders {d.window}
+                            {demandRowLabel(d)}
                           </p>
                           <p className="mt-0.5 text-[11px] text-[#0C831F]">
                             New for you — you haven&apos;t tried this category
@@ -500,7 +655,7 @@ export default function PhoneSim() {
                       <ProductCard
                         key={p.name}
                         product={p}
-                        onAdd={() => addToCart(p, false)}
+                        {...cartControls(p, false)}
                       />
                     ))}
                   </div>
@@ -510,11 +665,12 @@ export default function PhoneSim() {
 
             {q && matches.length > 0 && (
               <ul className="space-y-1">
-                {matches.map((p) => (
-                  <li key={p.name}>
-                    <button
-                      type="button"
-                      className="flex w-full items-center gap-3 rounded-lg px-1 py-2 text-left hover:bg-white/60"
+                {matches.map((p) => {
+                  const controls = cartControls(p, !p.owned);
+                  return (
+                    <li
+                      key={p.name}
+                      className="flex w-full items-center gap-3 rounded-lg px-1 py-2"
                     >
                       <EmojiTile
                         emoji={p.emoji}
@@ -522,27 +678,34 @@ export default function PhoneSim() {
                         size={28}
                         className="h-10 w-10 shrink-0"
                       />
-                      <span className="text-[14px]">
+                      <span className="min-w-0 flex-1 text-[14px]">
                         <HighlightMatch text={p.name} query={q} />
                       </span>
-                    </button>
-                  </li>
-                ))}
-                {showIceHint && (
+                      <AddOrStepper
+                        qty={controls.qty}
+                        onAdd={controls.onAdd}
+                        onInc={controls.onInc}
+                        onDec={controls.onDec}
+                        variant="row"
+                      />
+                    </li>
+                  );
+                })}
+                {typedDemand && (
                   <li>
                     <button
                       type="button"
-                      onClick={() => openDemand(iceDemand)}
+                      onClick={() => openDemand(typedDemand)}
                       className="mt-1 flex w-full items-center gap-3 rounded-xl border border-[#0C831F]/25 bg-[#EAF7EE] px-3 py-2.5 text-left"
                     >
                       <EmojiTile
-                        emoji="🍦"
-                        tint="#E3F2FD"
+                        emoji={emojiForCategory(typedDemand.category)}
+                        tint={TINT[typedDemand.category] ?? "#F5F5F5"}
                         size={28}
                         className="h-10 w-10 shrink-0"
                       />
                       <span className="text-[13px] font-semibold text-[#0C831F]">
-                        Ice cream · 214 ordered near you tonight · new for you
+                        {demandRowLabel(typedDemand)} · new for you
                       </span>
                     </button>
                   </li>
@@ -552,20 +715,20 @@ export default function PhoneSim() {
 
             {q && matches.length === 0 && (
               <>
-                {showIceHint && (
+                {typedDemand && (
                   <button
                     type="button"
-                    onClick={() => openDemand(iceDemand)}
+                    onClick={() => openDemand(typedDemand)}
                     className="mb-3 flex w-full items-center gap-3 rounded-xl border border-[#0C831F]/25 bg-[#EAF7EE] px-3 py-2.5 text-left"
                   >
                     <EmojiTile
-                      emoji="🍦"
-                      tint="#E3F2FD"
+                      emoji={emojiForCategory(typedDemand.category)}
+                      tint={TINT[typedDemand.category] ?? "#F5F5F5"}
                       size={28}
                       className="h-10 w-10 shrink-0"
                     />
                     <span className="text-[13px] font-semibold text-[#0C831F]">
-                      Ice cream · 214 ordered near you tonight · new for you
+                      {demandRowLabel(typedDemand)} · new for you
                     </span>
                   </button>
                 )}
@@ -612,7 +775,7 @@ export default function PhoneSim() {
                                     key={product.name}
                                     product={product}
                                     why={why}
-                                    onAdd={() => addToCart(product, false)}
+                                    {...cartControls(product, !product.owned)}
                                   />
                                 ))}
                               </div>
@@ -676,7 +839,7 @@ export default function PhoneSim() {
             )}
           </div>
 
-          {cartCount > 0 && (
+          {cartCount > 0 && !showKeyboard && (
             <div className="pointer-events-none absolute inset-x-0 bottom-4 z-30 flex justify-center">
               <button
                 type="button"
@@ -694,87 +857,127 @@ export default function PhoneSim() {
             </div>
           )}
 
+          {showKeyboard && <IosKeyboard />}
+
           {activeDemand && (
             <BottomSheet
               demand={activeDemand}
               products={productsFor(activeDemand)}
+              qtyOf={qtyOf}
               onClose={() => setActiveDemand(null)}
-              onAdd={(p) => addToCart(p, true)}
+              onAdjust={(p, delta) => adjustCart(p, delta, true)}
             />
           )}
         </>
       )}
 
-      {/* —— CART —— */}
+      {/* —— CHECKOUT —— */}
       {screen === "cart" && (
         <>
-          <Header />
-          <div className="flex items-center gap-2 border-b border-zinc-100 bg-white px-3.5 py-3">
+          <div className="flex shrink-0 items-center gap-2 bg-white px-3.5 pb-3 pt-4">
             <button
               type="button"
               aria-label="Back"
               onClick={() => setScreen(cartCount ? "search" : "home")}
-              className="text-[20px] leading-none text-[#1C1C1C]"
+              className="text-[22px] leading-none text-[#1C1C1C]"
             >
               ‹
             </button>
-            <h2 className="text-[16px] font-bold text-[#1C1C1C]">Cart</h2>
+            <h2 className="text-[17px] font-bold text-[#1C1C1C]">Checkout</h2>
           </div>
-          <div className="min-h-0 flex-1 overflow-y-auto px-3.5 py-4">
+          <div className="min-h-0 flex-1 overflow-y-auto bg-[#F4F6FB] px-3.5 py-3">
             {cart.length === 0 ? (
               <p className="py-10 text-center text-[13px] text-[#7E8794]">
                 Your cart is empty
               </p>
             ) : (
-              <ul className="space-y-2">
-                {cart.map((item) => (
-                  <li
-                    key={item.name}
-                    className="flex items-center justify-between rounded-2xl bg-white px-3 py-3 shadow-sm"
+              <div className="overflow-hidden rounded-2xl bg-white shadow-sm">
+                <div className="flex items-start gap-3 border-b border-zinc-100 px-3.5 py-3.5">
+                  <span
+                    className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#EAF7EE] text-[16px] text-[#0C831F]"
+                    aria-hidden
                   >
-                    <div>
-                      <p className="text-[13px] font-semibold text-[#1C1C1C]">
-                        {item.name}
-                      </p>
-                      <p className="text-[11px] text-[#7E8794]">
-                        {item.category}
-                        {item.viaAaspaas ? " · via Aaspaas" : ""}
-                      </p>
-                    </div>
-                    <div className="text-right">
-                      <p className="text-[12px] font-medium text-[#1C1C1C]">
-                        ×{item.qty}
-                      </p>
-                      <p className="text-[13px] font-bold text-[#1C1C1C]">
-                        ₹{item.price * item.qty}
-                      </p>
-                    </div>
-                  </li>
-                ))}
-              </ul>
+                    ⏱
+                  </span>
+                  <div>
+                    <p className="text-[14px] font-bold text-[#0C831F]">
+                      Delivery in 10 minutes
+                    </p>
+                    <p className="mt-0.5 text-[12px] text-[#7E8794]">
+                      Shipment of {cartCount}{" "}
+                      {cartCount === 1 ? "item" : "items"}
+                    </p>
+                  </div>
+                </div>
+                <ul>
+                  {cart.map((item) => {
+                    const line = item.price * item.qty;
+                    const mrp = Math.round(item.price * 1.25) * item.qty;
+                    const unexplored =
+                      item.viaAaspaas ||
+                      catalog.find((p) => p.name === item.name)?.owned ===
+                        false;
+                    return (
+                      <li
+                        key={item.name}
+                        className="flex gap-3 border-b border-zinc-100 px-3.5 py-3 last:border-b-0"
+                      >
+                        <EmojiTile
+                          emoji={item.emoji || "🛒"}
+                          tint={TINT[item.category] ?? "#F5F5F5"}
+                          size={28}
+                          className="h-14 w-14 shrink-0"
+                        />
+                        <div className="min-w-0 flex-1">
+                          <p className="text-[13px] font-semibold leading-snug text-[#1C1C1C]">
+                            {item.name}
+                          </p>
+                          <p className="mt-0.5 text-[11px] text-[#7E8794]">
+                            1 pc
+                          </p>
+                          {unexplored && (
+                            <p className="mt-1 text-[10px] font-medium leading-snug text-[#0C831F]">
+                              ✦ First time from {item.category} · via Aaspaas
+                            </p>
+                          )}
+                        </div>
+                        <div className="flex shrink-0 flex-col items-end gap-1.5">
+                          <AddOrStepper
+                            qty={item.qty}
+                            onAdd={() => adjustCartItem(item, 1)}
+                            onInc={() => adjustCartItem(item, 1)}
+                            onDec={() => adjustCartItem(item, -1)}
+                            variant="cart"
+                          />
+                          <p className="text-[13px] font-bold text-[#1C1C1C]">
+                            ₹{line}{" "}
+                            <span className="text-[11px] font-normal text-[#7E8794] line-through">
+                              ₹{mrp}
+                            </span>
+                          </p>
+                        </div>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
             )}
           </div>
           {cart.length > 0 && (
-            <div className="shrink-0 border-t border-zinc-100 bg-white px-3.5 py-3">
-              <div className="mb-2 flex justify-between text-[14px] font-semibold">
-                <span>Total</span>
-                <span>₹{cartTotal}</span>
-              </div>
+            <div className="shrink-0 border-t border-zinc-100 bg-white px-3.5 pb-4 pt-2.5">
+              <p className="mb-2 text-[12px] text-[#7E8794]">
+                Delivering to home · Flat 43
+              </p>
               <button
                 type="button"
                 onClick={placeOrder}
-                className="w-full rounded-xl bg-[#0C831F] py-3 text-[14px] font-bold text-white"
+                className="flex w-full items-center justify-between rounded-xl bg-[#0C831F] px-4 py-3.5 text-[14px] font-bold text-white"
               >
-                Place order
+                <span>₹{cartTotal} TOTAL</span>
+                <span>Place Order ›</span>
               </button>
             </div>
           )}
-          <BottomNav
-            active="cart"
-            cartCount={cartCount}
-            onHome={() => setScreen("home")}
-            onCart={() => setScreen("cart")}
-          />
         </>
       )}
 

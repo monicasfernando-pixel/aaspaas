@@ -4,6 +4,9 @@
     "category": "Ice cream",
     "orders": 214,
     "window": "after 10 pm",
+    "top_product": "Amul Vanilla Cup",
+    "context": ["late_night", "evening", "festival"],
+    "triggers": ["ice", "cold", "dessert", "sweet"],
     "sentence": "Ice cream is moving fast near you — 214 orders after 10 pm.",
     "entryOffer": "First time trying this? Single cup ₹49 — smallest way in"
   },
@@ -12,6 +15,9 @@
     "category": "Pharmacy",
     "orders": 96,
     "window": "tonight",
+    "top_product": "Crocin Advance Strip",
+    "context": ["late_night", "morning", "rainy", "always"],
+    "triggers": ["medicine", "cold", "fever", "tablet"],
     "sentence": "Pharmacy is in demand — 96 cold & fever orders tonight in Sector 47.",
     "entryOffer": "First time trying this? Single strip ₹49 — smallest way in"
   },
@@ -20,6 +26,9 @@
     "category": "Home cleaning",
     "orders": 143,
     "window": "this week",
+    "top_product": "Lizol Disinfectant 975ml",
+    "context": ["morning", "evening", "rainy"],
+    "triggers": ["clean", "floor", "wipe"],
     "sentence": "Home cleaning is stocking up — 143 orders this week near you.",
     "entryOffer": "First time trying this? Trial bottle ₹49 — smallest way in"
   },
@@ -28,6 +37,9 @@
     "category": "Pet supplies",
     "orders": 64,
     "window": "today",
+    "top_product": "Pedigree Adult 1kg",
+    "context": ["morning", "evening", "festival", "always"],
+    "triggers": ["dog", "cat", "pet"],
     "sentence": "Pet supplies are stocking up — 64 orders today in your neighbourhood.",
     "entryOffer": "First time trying this? Trial pouch ₹49 — smallest way in"
   }

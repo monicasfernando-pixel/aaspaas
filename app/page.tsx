@@ -11,8 +11,9 @@ export default function Home() {
         <PhoneSim />
       </div>
 
-      <p className="text-[12px] text-zinc-500">
-        Simulation — Blinkit-style quick commerce.
+      <p className="max-w-[428px] text-center text-[12px] leading-snug text-zinc-500">
+        Keyboard shown to reflect real conditions — only the top-ranked demand
+        rows are visible above the fold.
       </p>
     </main>
   );

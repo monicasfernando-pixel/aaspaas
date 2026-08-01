@@ -1,5 +1,6 @@
 "use client";
 
+import AddOrStepper from "./AddOrStepper";
 import type { DemandItem, CatalogItem } from "./types";
 
 const TINT: Record<string, string> = {
@@ -18,11 +19,18 @@ const TINT: Record<string, string> = {
 type Props = {
   demand: DemandItem;
   products: CatalogItem[];
+  qtyOf: (name: string) => number;
   onClose: () => void;
-  onAdd: (product: CatalogItem) => void;
+  onAdjust: (product: CatalogItem, delta: number) => void;
 };
 
-export default function BottomSheet({ demand, products, onClose, onAdd }: Props) {
+export default function BottomSheet({
+  demand,
+  products,
+  qtyOf,
+  onClose,
+  onAdjust,
+}: Props) {
   return (
     <div className="absolute inset-0 z-40 flex flex-col justify-end overflow-hidden">
       <button
@@ -38,35 +46,38 @@ export default function BottomSheet({ demand, products, onClose, onAdd }: Props)
           {demand.sentence}
         </p>
         <div className="mt-3 grid grid-cols-2 gap-2.5">
-          {products.slice(0, 2).map((p) => (
-            <div
-              key={p.name}
-              className="overflow-hidden rounded-xl border border-zinc-100 bg-zinc-50"
-            >
+          {products.slice(0, 2).map((p) => {
+            const qty = qtyOf(p.name);
+            return (
               <div
-                className="m-1.5 flex h-16 items-center justify-center rounded-xl"
-                style={{ background: TINT[p.category] ?? "#F5F5F5" }}
+                key={p.name}
+                className="overflow-hidden rounded-xl border border-zinc-100 bg-zinc-50"
               >
-                <span style={{ fontSize: 34 }} aria-hidden>
-                  {p.emoji}
-                </span>
-              </div>
-              <div className="space-y-1 p-2 pt-0">
-                <p className="line-clamp-2 text-[12px] font-medium text-[#1C1C1C]">
-                  {p.name}
-                </p>
-                <p className="text-[12px] text-[#1C1C1C]">₹{p.price}</p>
-                <p className="text-[11px] text-amber-600">★ {p.rating}</p>
-                <button
-                  type="button"
-                  onClick={() => onAdd(p)}
-                  className="mt-1 w-full rounded-md border border-[#0C831F] bg-white py-1 text-[11px] font-bold tracking-wide text-[#0C831F]"
+                <div
+                  className="m-1.5 flex h-16 items-center justify-center rounded-xl"
+                  style={{ background: TINT[p.category] ?? "#F5F5F5" }}
                 >
-                  ADD
-                </button>
+                  <span style={{ fontSize: 34 }} aria-hidden>
+                    {p.emoji}
+                  </span>
+                </div>
+                <div className="space-y-1 p-2 pt-0">
+                  <p className="line-clamp-2 text-[12px] font-medium text-[#1C1C1C]">
+                    {p.name}
+                  </p>
+                  <p className="text-[12px] text-[#1C1C1C]">₹{p.price}</p>
+                  <p className="text-[11px] text-amber-600">★ {p.rating}</p>
+                  <AddOrStepper
+                    qty={qty}
+                    onAdd={() => onAdjust(p, 1)}
+                    onInc={() => onAdjust(p, 1)}
+                    onDec={() => onAdjust(p, -1)}
+                    variant="sheet"
+                  />
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
         <div className="mt-3 rounded-lg bg-[#F4F9E0] px-3 py-2 text-[12px] font-medium text-[#4A6B10]">
           {demand.entryOffer}
