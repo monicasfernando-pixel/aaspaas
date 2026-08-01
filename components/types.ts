@@ -1,10 +1,14 @@
 export type DemandContext =
   | "late_night"
   | "morning"
-  | "evening"
   | "rainy"
   | "festival"
   | "always";
+
+export type TrialSku = {
+  name: string;
+  price: number;
+};
 
 export type DemandItem = {
   id: string;
@@ -12,10 +16,10 @@ export type DemandItem = {
   orders: number;
   window: string;
   top_product: string;
-  context: DemandContext[];
+  contexts: DemandContext[];
   triggers: string[];
   sentence: string;
-  entryOffer: string;
+  trial_sku: TrialSku;
 };
 
 export type CatalogItem = {
@@ -24,7 +28,7 @@ export type CatalogItem = {
   price: number;
   rating: number;
   owned: boolean;
-  emoji: string;
+  image: string;
   tags: string[];
 };
 
@@ -34,7 +38,7 @@ export type CartItem = {
   price: number;
   qty: number;
   viaAaspaas: boolean;
-  emoji: string;
+  image: string;
 };
 
 export type Screen = "home" | "search" | "cart" | "order";

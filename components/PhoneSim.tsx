@@ -14,8 +14,20 @@ import type {
   Screen,
 } from "./types";
 
-const demand = demandData as DemandItem[];
 const catalog = (catalogData as { products: CatalogItem[] }).products;
+
+/** Persona owned categories — must never appear as demand / "New for you". */
+const OWNED_CATEGORIES = new Set(
+  catalog.filter((p) => p.owned).map((p) => p.category),
+);
+
+function isUnexploredDemand(item: DemandItem): boolean {
+  if (OWNED_CATEGORIES.has(item.category)) return false;
+  // Also reject if any catalog product in this category is owned.
+  return !catalog.some((p) => p.category === item.category && p.owned);
+}
+
+const demand = (demandData as DemandItem[]).filter(isUnexploredDemand);
 
 type SimulateMode = "late_night" | "rainy" | "festival" | "morning" | null;
 
@@ -26,30 +38,42 @@ const SIMULATE_OPTIONS: { id: NonNullable<SimulateMode>; label: string }[] = [
   { id: "morning", label: "☀️ Morning" },
 ];
 
-function contextsFromHour(hour: number): DemandContext[] {
-  if (hour >= 22 || hour < 5) return ["late_night"];
-  if (hour >= 5 && hour < 12) return ["morning"];
-  if (hour >= 17 && hour < 22) return ["evening"];
-  return [];
+function contextFromHour(hour: number): DemandContext {
+  if (hour >= 22 || hour < 5) return "late_night";
+  if (hour >= 5 && hour < 12) return "morning";
+  return "always";
 }
 
+/** Show rows matching active context by orders; if < 3, fill with always. */
 function rankDemand(
   items: DemandItem[],
-  active: DemandContext[],
+  active: DemandContext,
   limit = 4,
 ): DemandItem[] {
-  const scored = items.map((item, index) => {
-    const match =
-      item.context.includes("always") ||
-      item.context.some((c) => active.includes(c));
-    return { item, match, index };
-  });
-  scored.sort((a, b) => {
-    if (a.match !== b.match) return a.match ? -1 : 1;
-    if (b.item.orders !== a.item.orders) return b.item.orders - a.item.orders;
-    return a.index - b.index;
-  });
-  return scored.slice(0, limit).map((s) => s.item);
+  const byOrders = (a: DemandItem, b: DemandItem) => b.orders - a.orders;
+  const pool = items.filter(isUnexploredDemand);
+
+  if (active === "always") {
+    return pool
+      .filter((i) => i.contexts.includes("always"))
+      .sort(byOrders)
+      .slice(0, limit);
+  }
+
+  const matched = pool
+    .filter((i) => i.contexts.includes(active))
+    .sort(byOrders);
+
+  if (matched.length >= 3) {
+    return matched.slice(0, limit);
+  }
+
+  const matchedIds = new Set(matched.map((i) => i.id));
+  const fillers = pool
+    .filter((i) => i.contexts.includes("always") && !matchedIds.has(i.id))
+    .sort(byOrders);
+
+  return [...matched, ...fillers].slice(0, limit);
 }
 
 function triggerMatchesQuery(triggers: string[], q: string): boolean {
@@ -60,7 +84,9 @@ function triggerMatchesQuery(triggers: string[], q: string): boolean {
 
 function findTypedDemand(items: DemandItem[], q: string): DemandItem | null {
   if (!q) return null;
-  const hits = items.filter((d) => triggerMatchesQuery(d.triggers, q));
+  const hits = items
+    .filter(isUnexploredDemand)
+    .filter((d) => triggerMatchesQuery(d.triggers, q));
   if (!hits.length) return null;
   return [...hits].sort((a, b) => b.orders - a.orders)[0];
 }
@@ -69,8 +95,8 @@ function demandRowLabel(d: DemandItem) {
   return `${d.category} · ${d.orders} orders ${d.window} — ${d.top_product} leading`;
 }
 
-function emojiForCategory(category: string) {
-  return catalog.find((p) => p.category === category)?.emoji ?? "✦";
+function imageForCategory(category: string) {
+  return catalog.find((p) => p.category === category)?.image ?? "";
 }
 
 const RECENT = ["dosa ma", "banan", "oil", "dosa batter", "milk"];
@@ -87,35 +113,53 @@ const TINT: Record<string, string> = {
   "Pet supplies": "#FFF3E0",
   "Baby care": "#FCE4EC",
   "Home cleaning": "#E0F7FA",
+  "Sweets & mithai": "#FFF3E0",
+  "Dry fruits & gifting": "#F3E5F5",
+  "Diyas & decor": "#FFF8E7",
+  "Disposable plates & cups": "#E8F5E9",
+  "Hot beverages": "#EFEBE9",
+  Umbrellas: "#E3F2FD",
+  "Instant soup": "#FFF3E0",
+  "Fried snacks": "#FCE4EC",
+  "Breakfast cereal": "#FFF8E7",
+  "Fresh juice": "#E8F5E9",
+  "Health drinks": "#EFEBE9",
 };
 const FREQ = [
-  { label: "Favourites", tint: "#E8F0FE", emoji: "🥛", cats: ["Dairy", "Bread & eggs"] },
-  { label: "Fruits & vegetables", tint: "#E8F5E9", emoji: "🥦", cats: ["Fruits & vegetables"] },
-  { label: "Dairy", tint: "#FFF3E0", emoji: "🥛", cats: ["Dairy"] },
-  { label: "Staples", tint: "#F3E5F5", emoji: "🌾", cats: ["Staples"] },
-  { label: "Snacks", tint: "#FCE4EC", emoji: "🍟", cats: ["Snacks"] },
-  { label: "Bread & eggs", tint: "#FFF8E7", emoji: "🍞", cats: ["Bread & eggs"] },
+  { label: "Favourites", tint: "#E8F0FE", cats: ["Dairy", "Bread & eggs"] },
+  { label: "Fruits & vegetables", tint: "#E8F5E9", cats: ["Fruits & vegetables"] },
+  { label: "Dairy", tint: "#FFF3E0", cats: ["Dairy"] },
+  { label: "Staples", tint: "#F3E5F5", cats: ["Staples"] },
+  { label: "Snacks", tint: "#FCE4EC", cats: ["Snacks"] },
+  { label: "Bread & eggs", tint: "#FFF8E7", cats: ["Bread & eggs"] },
 ];
 
-function EmojiTile({
-  emoji,
+function ProductThumb({
+  src,
+  alt,
   tint,
-  size,
   className = "",
 }: {
-  emoji: string;
+  src: string;
+  alt: string;
   tint: string;
-  size: 28 | 34;
   className?: string;
 }) {
   return (
     <div
-      className={`flex items-center justify-center rounded-xl ${className}`}
+      className={`overflow-hidden rounded-xl ${className}`}
       style={{ background: tint }}
     >
-      <span style={{ fontSize: size }} aria-hidden>
-        {emoji}
-      </span>
+      {src ? (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          src={src}
+          alt={alt}
+          className="h-full w-full object-cover"
+          loading="lazy"
+          referrerPolicy="no-referrer"
+        />
+      ) : null}
     </div>
   );
 }
@@ -153,10 +197,10 @@ function ProductCard({
   return (
     <div className="w-[140px] shrink-0">
       <div className="overflow-hidden rounded-2xl bg-white">
-        <EmojiTile
-          emoji={product.emoji}
+        <ProductThumb
+          src={product.image}
+          alt={product.name}
           tint={TINT[product.category] ?? "#F5F5F5"}
-          size={34}
           className="m-1.5 h-[96px]"
         />
         <div className="flex items-center justify-between gap-1 px-2 py-1.5">
@@ -286,14 +330,14 @@ export default function PhoneSim() {
   const showKeyboard = screen === "search" && !activeDemand;
   const cartTotal = cart.reduce((n, i) => n + i.price * i.qty, 0);
 
-  const activeContexts = useMemo<DemandContext[]>(() => {
-    if (simulate) return [simulate];
-    return contextsFromHour(new Date().getHours());
+  const activeContext = useMemo<DemandContext>(() => {
+    if (simulate) return simulate;
+    return contextFromHour(new Date().getHours());
   }, [simulate]);
 
   const rankedDemand = useMemo(
-    () => rankDemand(demand, activeContexts, 4),
-    [activeContexts],
+    () => rankDemand(demand, activeContext, 4),
+    [activeContext],
   );
 
   const q = query.trim().toLowerCase();
@@ -378,7 +422,7 @@ export default function PhoneSim() {
                 ...i,
                 qty: nextQty,
                 viaAaspaas: i.viaAaspaas || viaAaspaas,
-                emoji: i.emoji || product.emoji,
+                image: i.image || product.image,
               }
             : i,
         );
@@ -391,7 +435,7 @@ export default function PhoneSim() {
           price: product.price,
           qty: nextQty,
           viaAaspaas,
-          emoji: product.emoji,
+          image: product.image,
         },
       ];
     });
@@ -493,17 +537,18 @@ export default function PhoneSim() {
                       className="mb-2 flex h-16 items-center justify-center gap-1.5 rounded-xl"
                       style={{ background: tile.tint }}
                     >
-                      {(samples.length ? samples : [{ emoji: tile.emoji, name: tile.label }]).map(
-                        (s) => (
-                          <EmojiTile
-                            key={s.name}
-                            emoji={"emoji" in s ? s.emoji : tile.emoji}
-                            tint="#ffffffcc"
-                            size={28}
-                            className="h-10 w-10"
-                          />
-                        ),
-                      )}
+                      {(samples.length
+                        ? samples
+                        : [{ image: imageForCategory(tile.cats[0]), name: tile.label }]
+                      ).map((s) => (
+                        <ProductThumb
+                          key={s.name}
+                          src={"image" in s ? s.image : ""}
+                          alt={s.name}
+                          tint="#ffffffcc"
+                          className="h-10 w-10"
+                        />
+                      ))}
                       <span className="rounded-full bg-white/80 px-1.5 py-0.5 text-[9px] font-medium text-[#7E8794]">
                         +{8 + i * 2} more
                       </span>
@@ -672,10 +717,10 @@ export default function PhoneSim() {
                       key={p.name}
                       className="flex w-full items-center gap-3 rounded-lg px-1 py-2"
                     >
-                      <EmojiTile
-                        emoji={p.emoji}
+                      <ProductThumb
+                        src={p.image}
+                        alt={p.name}
                         tint={TINT[p.category] ?? "#F5F5F5"}
-                        size={28}
                         className="h-10 w-10 shrink-0"
                       />
                       <span className="min-w-0 flex-1 text-[14px]">
@@ -698,10 +743,10 @@ export default function PhoneSim() {
                       onClick={() => openDemand(typedDemand)}
                       className="mt-1 flex w-full items-center gap-3 rounded-xl border border-[#0C831F]/25 bg-[#EAF7EE] px-3 py-2.5 text-left"
                     >
-                      <EmojiTile
-                        emoji={emojiForCategory(typedDemand.category)}
+                      <ProductThumb
+                        src={imageForCategory(typedDemand.category)}
+                        alt={typedDemand.category}
                         tint={TINT[typedDemand.category] ?? "#F5F5F5"}
-                        size={28}
                         className="h-10 w-10 shrink-0"
                       />
                       <span className="text-[13px] font-semibold text-[#0C831F]">
@@ -721,10 +766,10 @@ export default function PhoneSim() {
                     onClick={() => openDemand(typedDemand)}
                     className="mb-3 flex w-full items-center gap-3 rounded-xl border border-[#0C831F]/25 bg-[#EAF7EE] px-3 py-2.5 text-left"
                   >
-                    <EmojiTile
-                      emoji={emojiForCategory(typedDemand.category)}
+                    <ProductThumb
+                      src={imageForCategory(typedDemand.category)}
+                      alt={typedDemand.category}
                       tint={TINT[typedDemand.category] ?? "#F5F5F5"}
-                      size={28}
                       className="h-10 w-10 shrink-0"
                     />
                     <span className="text-[13px] font-semibold text-[#0C831F]">
@@ -922,10 +967,10 @@ export default function PhoneSim() {
                         key={item.name}
                         className="flex gap-3 border-b border-zinc-100 px-3.5 py-3 last:border-b-0"
                       >
-                        <EmojiTile
-                          emoji={item.emoji || "🛒"}
+                        <ProductThumb
+                          src={item.image}
+                          alt={item.name}
                           tint={TINT[item.category] ?? "#F5F5F5"}
-                          size={28}
                           className="h-14 w-14 shrink-0"
                         />
                         <div className="min-w-0 flex-1">

@@ -9,7 +9,7 @@ type CatalogFile = {
     price: number;
     rating: number;
     owned: boolean;
-    emoji: string;
+    image: string;
     tags: string[];
   }>;
 };

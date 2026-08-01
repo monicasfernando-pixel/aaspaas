@@ -14,6 +14,17 @@ const TINT: Record<string, string> = {
   "Pet supplies": "#FFF3E0",
   "Baby care": "#FCE4EC",
   "Home cleaning": "#E0F7FA",
+  "Sweets & mithai": "#FFF3E0",
+  "Dry fruits & gifting": "#F3E5F5",
+  "Diyas & decor": "#FFF8E7",
+  "Disposable plates & cups": "#E8F5E9",
+  "Hot beverages": "#EFEBE9",
+  Umbrellas: "#E3F2FD",
+  "Instant soup": "#FFF3E0",
+  "Fried snacks": "#FCE4EC",
+  "Breakfast cereal": "#FFF8E7",
+  "Fresh juice": "#E8F5E9",
+  "Health drinks": "#EFEBE9",
 };
 
 type Props = {
@@ -31,6 +42,12 @@ export default function BottomSheet({
   onClose,
   onAdjust,
 }: Props) {
+  const sheetProducts = products.slice(0, 2);
+  const lowestSheetPrice = Math.min(...sheetProducts.map((p) => p.price));
+  const trial = demand.trial_sku;
+  // Guard: trial strip must undercut every product card in this sheet.
+  const trialPrice = Math.min(trial.price, lowestSheetPrice - 1);
+
   return (
     <div className="absolute inset-0 z-40 flex flex-col justify-end overflow-hidden">
       <button
@@ -46,7 +63,7 @@ export default function BottomSheet({
           {demand.sentence}
         </p>
         <div className="mt-3 grid grid-cols-2 gap-2.5">
-          {products.slice(0, 2).map((p) => {
+          {sheetProducts.map((p) => {
             const qty = qtyOf(p.name);
             return (
               <div
@@ -54,12 +71,17 @@ export default function BottomSheet({
                 className="overflow-hidden rounded-xl border border-zinc-100 bg-zinc-50"
               >
                 <div
-                  className="m-1.5 flex h-16 items-center justify-center rounded-xl"
+                  className="m-1.5 h-16 overflow-hidden rounded-xl"
                   style={{ background: TINT[p.category] ?? "#F5F5F5" }}
                 >
-                  <span style={{ fontSize: 34 }} aria-hidden>
-                    {p.emoji}
-                  </span>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={p.image}
+                    alt={p.name}
+                    className="h-full w-full object-cover"
+                    loading="lazy"
+                    referrerPolicy="no-referrer"
+                  />
                 </div>
                 <div className="space-y-1 p-2 pt-0">
                   <p className="line-clamp-2 text-[12px] font-medium text-[#1C1C1C]">
@@ -80,7 +102,7 @@ export default function BottomSheet({
           })}
         </div>
         <div className="mt-3 rounded-lg bg-[#F4F9E0] px-3 py-2 text-[12px] font-medium text-[#4A6B10]">
-          {demand.entryOffer}
+          First time trying this? {trial.name} ₹{trialPrice} — smallest way in
         </div>
       </div>
     </div>

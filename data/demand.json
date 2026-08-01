@@ -5,32 +5,21 @@
     "orders": 214,
     "window": "after 10 pm",
     "top_product": "Amul Vanilla Cup",
-    "context": ["late_night", "evening", "festival"],
+    "contexts": ["late_night"],
     "triggers": ["ice", "cold", "dessert", "sweet"],
     "sentence": "Ice cream is moving fast near you — 214 orders after 10 pm.",
-    "entryOffer": "First time trying this? Single cup ₹49 — smallest way in"
+    "trial_sku": { "name": "Amul Single Cup", "price": 20 }
   },
   {
-    "id": "cold-fever",
+    "id": "pharmacy",
     "category": "Pharmacy",
     "orders": 96,
-    "window": "tonight",
+    "window": "after 10 pm",
     "top_product": "Crocin Advance Strip",
-    "context": ["late_night", "morning", "rainy", "always"],
+    "contexts": ["late_night", "always"],
     "triggers": ["medicine", "cold", "fever", "tablet"],
-    "sentence": "Pharmacy is in demand — 96 cold & fever orders tonight in Sector 47.",
-    "entryOffer": "First time trying this? Single strip ₹49 — smallest way in"
-  },
-  {
-    "id": "home-cleaning",
-    "category": "Home cleaning",
-    "orders": 143,
-    "window": "this week",
-    "top_product": "Lizol Disinfectant 975ml",
-    "context": ["morning", "evening", "rainy"],
-    "triggers": ["clean", "floor", "wipe"],
-    "sentence": "Home cleaning is stocking up — 143 orders this week near you.",
-    "entryOffer": "First time trying this? Trial bottle ₹49 — smallest way in"
+    "sentence": "Pharmacy is in demand — 96 cold & fever orders after 10 pm in Sector 47.",
+    "trial_sku": { "name": "ORS Lemon Sachet", "price": 15 }
   },
   {
     "id": "pet",
@@ -38,9 +27,152 @@
     "orders": 64,
     "window": "today",
     "top_product": "Pedigree Adult 1kg",
-    "context": ["morning", "evening", "festival", "always"],
+    "contexts": ["always"],
     "triggers": ["dog", "cat", "pet"],
     "sentence": "Pet supplies are stocking up — 64 orders today in your neighbourhood.",
-    "entryOffer": "First time trying this? Trial pouch ₹49 — smallest way in"
+    "trial_sku": { "name": "Whiskas Trial Pouch", "price": 25 }
+  },
+  {
+    "id": "baby-care",
+    "category": "Baby care",
+    "orders": 52,
+    "window": "today",
+    "top_product": "Pampers Baby Dry S (20)",
+    "contexts": ["always"],
+    "triggers": ["baby", "diaper", "wipes"],
+    "sentence": "Baby care is stocking up — 52 orders today near you.",
+    "trial_sku": { "name": "Baby Wipes Trial Pack", "price": 29 }
+  },
+  {
+    "id": "home-cleaning",
+    "category": "Home cleaning",
+    "orders": 88,
+    "window": "today",
+    "top_product": "Lizol Disinfectant 975ml",
+    "contexts": ["always"],
+    "triggers": ["clean", "floor", "wipe"],
+    "sentence": "Home cleaning is stocking up — 88 orders today near you.",
+    "trial_sku": { "name": "Vim Dishwash Sachet", "price": 10 }
+  },
+  {
+    "id": "sweets-mithai",
+    "category": "Sweets & mithai",
+    "orders": 186,
+    "window": "this week",
+    "top_product": "Haldiram's Gulab Jamun",
+    "contexts": ["festival"],
+    "triggers": ["sweet", "mithai", "gulab", "ladoo"],
+    "sentence": "Sweets & mithai are moving fast — 186 festival orders this week near you.",
+    "trial_sku": { "name": "Mini Ladoo Pack", "price": 49 }
+  },
+  {
+    "id": "dry-fruits-gifting",
+    "category": "Dry fruits & gifting",
+    "orders": 142,
+    "window": "this week",
+    "top_product": "Premium Mixed Dry Fruit Box",
+    "contexts": ["festival"],
+    "triggers": ["dry fruit", "gift", "cashew", "almond"],
+    "sentence": "Dry fruits & gifting are in demand — 142 orders this week in Sector 47.",
+    "trial_sku": { "name": "Roasted Almond Pouch", "price": 59 }
+  },
+  {
+    "id": "diyas-decor",
+    "category": "Diyas & decor",
+    "orders": 118,
+    "window": "this week",
+    "top_product": "Clay Diya Set (12)",
+    "contexts": ["festival"],
+    "triggers": ["diya", "decor", "diwali", "lights"],
+    "sentence": "Diyas & decor are stocking up — 118 festival orders this week near you.",
+    "trial_sku": { "name": "Tealight Diya Pack", "price": 29 }
+  },
+  {
+    "id": "disposable-plates",
+    "category": "Disposable plates & cups",
+    "orders": 97,
+    "window": "this week",
+    "top_product": "Paper Plate Pack (50)",
+    "contexts": ["festival"],
+    "triggers": ["plate", "cup", "disposable", "party"],
+    "sentence": "Disposable plates & cups are moving — 97 orders this week for gatherings near you.",
+    "trial_sku": { "name": "Paper Cup Pack (10)", "price": 25 }
+  },
+  {
+    "id": "hot-beverages",
+    "category": "Hot beverages",
+    "orders": 167,
+    "window": "today",
+    "top_product": "Cadbury Hot Chocolate",
+    "contexts": ["rainy"],
+    "triggers": ["coffee", "tea", "hot chocolate", "beverage"],
+    "sentence": "Hot beverages are surging — 167 orders today in the rain near you.",
+    "trial_sku": { "name": "Instant Coffee Sachet", "price": 12 }
+  },
+  {
+    "id": "umbrellas",
+    "category": "Umbrellas",
+    "orders": 134,
+    "window": "today",
+    "top_product": "Compact Fold Umbrella",
+    "contexts": ["rainy"],
+    "triggers": ["umbrella", "rain", "poncho"],
+    "sentence": "Umbrellas are selling out — 134 orders today in your neighbourhood.",
+    "trial_sku": { "name": "Mini Pocket Umbrella", "price": 99 }
+  },
+  {
+    "id": "instant-soup",
+    "category": "Instant soup",
+    "orders": 112,
+    "window": "today",
+    "top_product": "Knorr Classic Tomato Soup",
+    "contexts": ["rainy"],
+    "triggers": ["soup", "knorr", "broth"],
+    "sentence": "Instant soup is warming up carts — 112 orders today near you.",
+    "trial_sku": { "name": "Cup-a-Soup Sachet", "price": 18 }
+  },
+  {
+    "id": "fried-snacks",
+    "category": "Fried snacks",
+    "orders": 149,
+    "window": "today",
+    "top_product": "Haldiram's Aloo Bhujia",
+    "contexts": ["rainy"],
+    "triggers": ["bhujia", "namkeen", "fried", "crispy"],
+    "sentence": "Fried snacks are pairing with the rain — 149 orders today in Sector 47.",
+    "trial_sku": { "name": "Mini Bhujia Pack", "price": 20 }
+  },
+  {
+    "id": "breakfast-cereal",
+    "category": "Breakfast cereal",
+    "orders": 128,
+    "window": "this morning",
+    "top_product": "Kellogg's Corn Flakes",
+    "contexts": ["morning"],
+    "triggers": ["cereal", "cornflakes", "oats", "breakfast"],
+    "sentence": "Breakfast cereal is moving — 128 orders this morning near you.",
+    "trial_sku": { "name": "Corn Flakes Trial Pack", "price": 35 }
+  },
+  {
+    "id": "fresh-juice",
+    "category": "Fresh juice",
+    "orders": 101,
+    "window": "this morning",
+    "top_product": "Real Mixed Fruit Juice 1L",
+    "contexts": ["morning"],
+    "triggers": ["juice", "orange", "mosambi", "fresh"],
+    "sentence": "Fresh juice is in demand — 101 orders this morning in Sector 47.",
+    "trial_sku": { "name": "Real Juice Tetra 200ml", "price": 20 }
+  },
+  {
+    "id": "health-drinks",
+    "category": "Health drinks",
+    "orders": 156,
+    "window": "this morning",
+    "top_product": "Horlicks Classic Malt",
+    "contexts": ["morning"],
+    "triggers": ["horlicks", "bournvita", "malt", "health drink"],
+    "sentence": "Health drinks are moving — 156 orders this morning near you.",
+    "trial_sku": { "name": "Horlicks Trial Sachet", "price": 15 }
   }
 ]

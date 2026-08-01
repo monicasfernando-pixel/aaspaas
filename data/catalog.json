@@ -1,5 +1,5 @@
 {
-  "_rule": "demand rows surface unexplored categories only; Top picks surface owned categories only; the two sets must never overlap.",
+  "_rule": "demand rows surface unexplored categories only; Top picks surface owned categories only; the two sets must never overlap. Owned (never in demand): Dairy, Fruits & vegetables, Bread & eggs, Staples, Snacks.",
   "products": [
     {
       "name": "Amul Taaza 1L",
@@ -7,14 +7,14 @@
       "price": 68,
       "rating": 4.6,
       "owned": true,
-      "emoji": "🥛",
       "tags": [
         "milk",
         "dairy",
         "toned milk",
         "breakfast",
         "tea"
-      ]
+      ],
+      "image": "https://images.unsplash.com/photo-1563636619-e9143da7973b?auto=format&fit=crop&w=240&h=240&q=80"
     },
     {
       "name": "Amul Butter 100g",
@@ -22,14 +22,14 @@
       "price": 58,
       "rating": 4.7,
       "owned": true,
-      "emoji": "🥛",
       "tags": [
         "butter",
         "dairy",
         "spread",
         "toast",
         "cooking"
-      ]
+      ],
+      "image": "https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?auto=format&fit=crop&w=240&h=240&q=80"
     },
     {
       "name": "Mother Dairy Curd 400g",
@@ -37,14 +37,14 @@
       "price": 35,
       "rating": 4.5,
       "owned": true,
-      "emoji": "🍶",
       "tags": [
         "curd",
         "yogurt",
         "dairy",
         "probiotic",
         "dahi"
-      ]
+      ],
+      "image": "https://images.unsplash.com/photo-1628088062854-d1870b4553da?auto=format&fit=crop&w=240&h=240&q=80"
     },
     {
       "name": "Amul Cheese Slices",
@@ -52,14 +52,14 @@
       "price": 85,
       "rating": 4.5,
       "owned": true,
-      "emoji": "🥛",
       "tags": [
         "cheese",
         "dairy",
         "sandwich",
         "slices",
         "burger"
-      ]
+      ],
+      "image": "https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?auto=format&fit=crop&w=240&h=240&q=80"
     },
     {
       "name": "Nestle Everyday Dairy Whitener",
@@ -67,14 +67,14 @@
       "price": 120,
       "rating": 4.4,
       "owned": true,
-      "emoji": "🥛",
       "tags": [
         "milk powder",
         "whitener",
         "tea",
         "coffee",
         "dairy"
-      ]
+      ],
+      "image": "https://images.unsplash.com/photo-1550583724-b2692b85b150?auto=format&fit=crop&w=240&h=240&q=80"
     },
     {
       "name": "Epigamia Greek Yogurt",
@@ -82,14 +82,14 @@
       "price": 50,
       "rating": 4.6,
       "owned": true,
-      "emoji": "🍶",
       "tags": [
         "yogurt",
         "greek yogurt",
         "protein",
         "snack",
         "dairy"
-      ]
+      ],
+      "image": "https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=240&h=240&q=80"
     },
     {
       "name": "Amul Paneer 200g",
@@ -97,14 +97,14 @@
       "price": 95,
       "rating": 4.5,
       "owned": true,
-      "emoji": "🥛",
       "tags": [
         "paneer",
         "cottage cheese",
         "dairy",
         "curry",
         "protein"
-      ]
+      ],
+      "image": "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?auto=format&fit=crop&w=240&h=240&q=80"
     },
     {
       "name": "Amul Milk Shake Chocolate",
@@ -112,14 +112,14 @@
       "price": 30,
       "rating": 4.4,
       "owned": true,
-      "emoji": "🥛",
       "tags": [
         "milkshake",
         "chocolate drink",
         "dairy",
         "kids",
         "cold drink"
-      ]
+      ],
+      "image": "https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=240&h=240&q=80"
     },
     {
       "name": "Banana Robusta (6)",
@@ -127,14 +127,14 @@
       "price": 40,
       "rating": 4.3,
       "owned": true,
-      "emoji": "🍌",
       "tags": [
         "banana",
         "fruit",
         "potassium",
         "breakfast",
         "snack"
-      ]
+      ],
+      "image": "https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?auto=format&fit=crop&w=240&h=240&q=80"
     },
     {
       "name": "Shimla Apple (4)",
@@ -142,14 +142,14 @@
       "price": 120,
       "rating": 4.5,
       "owned": true,
-      "emoji": "🍎",
       "tags": [
         "apple",
         "fruit",
         "fresh fruit",
         "snack",
         "healthy"
-      ]
+      ],
+      "image": "https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?auto=format&fit=crop&w=240&h=240&q=80"
     },
     {
       "name": "Alphonso Mango (2)",
@@ -157,14 +157,14 @@
       "price": 180,
       "rating": 4.7,
       "owned": true,
-      "emoji": "🍎",
       "tags": [
         "mango",
         "fruit",
         "alphonso",
         "summer fruit",
         "sweet"
-      ]
+      ],
+      "image": "https://images.unsplash.com/photo-1553279768-865429fa0078?auto=format&fit=crop&w=240&h=240&q=80"
     },
     {
       "name": "Pomegranate (2)",
@@ -172,14 +172,14 @@
       "price": 90,
       "rating": 4.4,
       "owned": true,
-      "emoji": "🍎",
       "tags": [
         "pomegranate",
         "fruit",
         "anar",
         "juice fruit",
         "antioxidant"
-      ]
+      ],
+      "image": "https://images.unsplash.com/photo-1541344999734-4f79bd494ef9?auto=format&fit=crop&w=240&h=240&q=80"
     },
     {
       "name": "Tomato Local 500g",
@@ -187,14 +187,14 @@
       "price": 30,
       "rating": 4.2,
       "owned": true,
-      "emoji": "🥦",
       "tags": [
         "tomato",
         "vegetable",
         "sabzi",
         "salad",
         "cooking"
-      ]
+      ],
+      "image": "https://images.unsplash.com/photo-1546094096-0df4bcaaa337?auto=format&fit=crop&w=240&h=240&q=80"
     },
     {
       "name": "Onion 1kg",
@@ -202,14 +202,14 @@
       "price": 40,
       "rating": 4.3,
       "owned": true,
-      "emoji": "🥦",
       "tags": [
         "onion",
         "vegetable",
         "pyaz",
         "cooking",
         "kitchen staple"
-      ]
+      ],
+      "image": "https://images.unsplash.com/photo-1508747703725-719777637510?auto=format&fit=crop&w=240&h=240&q=80"
     },
     {
       "name": "Potato 1kg",
@@ -217,14 +217,14 @@
       "price": 35,
       "rating": 4.3,
       "owned": true,
-      "emoji": "🥦",
       "tags": [
         "potato",
         "vegetable",
         "aloo",
         "cooking",
         "sabzi"
-      ]
+      ],
+      "image": "https://images.unsplash.com/photo-1518977676601-b53f82aba655?auto=format&fit=crop&w=240&h=240&q=80"
     },
     {
       "name": "Coriander Bunch",
@@ -232,14 +232,14 @@
       "price": 15,
       "rating": 4.1,
       "owned": true,
-      "emoji": "🥦",
       "tags": [
         "coriander",
         "herbs",
         "dhania",
         "garnish",
         "vegetable"
-      ]
+      ],
+      "image": "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=240&h=240&q=80"
     },
     {
       "name": "Farm Fresh Eggs (6)",
@@ -247,14 +247,14 @@
       "price": 48,
       "rating": 4.4,
       "owned": true,
-      "emoji": "🥚",
       "tags": [
         "eggs",
         "protein",
         "breakfast",
         "omelette",
         "baking"
-      ]
+      ],
+      "image": "https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?auto=format&fit=crop&w=240&h=240&q=80"
     },
     {
       "name": "Britannia Brown Bread",
@@ -262,14 +262,14 @@
       "price": 50,
       "rating": 4.5,
       "owned": true,
-      "emoji": "🍞",
       "tags": [
         "bread",
         "brown bread",
         "toast",
         "sandwich",
         "breakfast"
-      ]
+      ],
+      "image": "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=240&h=240&q=80"
     },
     {
       "name": "English Oven Multigrain",
@@ -277,14 +277,14 @@
       "price": 55,
       "rating": 4.4,
       "owned": true,
-      "emoji": "🍞",
       "tags": [
         "bread",
         "multigrain",
         "toast",
         "healthy bread",
         "breakfast"
-      ]
+      ],
+      "image": "https://images.unsplash.com/photo-1549931319-a545dcf3bc73?auto=format&fit=crop&w=240&h=240&q=80"
     },
     {
       "name": "Modern White Bread",
@@ -292,14 +292,14 @@
       "price": 40,
       "rating": 4.3,
       "owned": true,
-      "emoji": "🍞",
       "tags": [
         "bread",
         "white bread",
         "toast",
         "sandwich",
         "breakfast"
-      ]
+      ],
+      "image": "https://images.unsplash.com/photo-1598373182133-52452f7691ef?auto=format&fit=crop&w=240&h=240&q=80"
     },
     {
       "name": "Eggs Cage Free (12)",
@@ -307,14 +307,14 @@
       "price": 95,
       "rating": 4.6,
       "owned": true,
-      "emoji": "🥚",
       "tags": [
         "eggs",
         "cage free",
         "protein",
         "breakfast",
         "baking"
-      ]
+      ],
+      "image": "https://images.unsplash.com/photo-1518569656558-1f25e69d93d7?auto=format&fit=crop&w=240&h=240&q=80"
     },
     {
       "name": "Pav Bun Pack (6)",
@@ -322,14 +322,14 @@
       "price": 35,
       "rating": 4.4,
       "owned": true,
-      "emoji": "🍞",
       "tags": [
         "pav",
         "bun",
         "bread",
         "vada pav",
         "burger"
-      ]
+      ],
+      "image": "https://images.unsplash.com/photo-1608198093002-ad4e005484ec?auto=format&fit=crop&w=240&h=240&q=80"
     },
     {
       "name": "Aashirvaad Atta 5kg",
@@ -337,14 +337,14 @@
       "price": 270,
       "rating": 4.6,
       "owned": true,
-      "emoji": "🌾",
       "tags": [
         "atta",
         "flour",
         "wheat",
         "roti",
         "staples"
-      ]
+      ],
+      "image": "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?auto=format&fit=crop&w=240&h=240&q=80"
     },
     {
       "name": "India Gate Basmati 1kg",
@@ -352,14 +352,14 @@
       "price": 165,
       "rating": 4.5,
       "owned": true,
-      "emoji": "🌾",
       "tags": [
         "rice",
         "basmati",
         "staples",
         "biryani",
         "grain"
-      ]
+      ],
+      "image": "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=240&h=240&q=80"
     },
     {
       "name": "Fortune Sunflower Oil 1L",
@@ -367,14 +367,14 @@
       "price": 145,
       "rating": 4.5,
       "owned": true,
-      "emoji": "🫒",
       "tags": [
         "cooking oil",
         "sunflower oil",
         "oil",
         "frying",
         "staples"
-      ]
+      ],
+      "image": "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&w=240&h=240&q=80"
     },
     {
       "name": "Tata Sampann Toor Dal 1kg",
@@ -382,14 +382,14 @@
       "price": 180,
       "rating": 4.4,
       "owned": true,
-      "emoji": "🌾",
       "tags": [
         "dal",
         "toor dal",
         "lentils",
         "protein",
         "staples"
-      ]
+      ],
+      "image": "https://images.unsplash.com/photo-1596797038530-2c107229654b?auto=format&fit=crop&w=240&h=240&q=80"
     },
     {
       "name": "Tata Salt 1kg",
@@ -397,14 +397,14 @@
       "price": 28,
       "rating": 4.7,
       "owned": true,
-      "emoji": "🌾",
       "tags": [
         "salt",
         "iodised salt",
         "cooking",
         "staples",
         "kitchen"
-      ]
+      ],
+      "image": "https://images.unsplash.com/photo-1518110925495-5fe2fda0442c?auto=format&fit=crop&w=240&h=240&q=80"
     },
     {
       "name": "Maggi 2-Minute Noodles",
@@ -412,14 +412,14 @@
       "price": 14,
       "rating": 4.6,
       "owned": true,
-      "emoji": "🌾",
       "tags": [
         "noodles",
         "maggi",
         "instant food",
         "snack",
         "quick meal"
-      ]
+      ],
+      "image": "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?auto=format&fit=crop&w=240&h=240&q=80"
     },
     {
       "name": "Tata Tea Gold 250g",
@@ -427,14 +427,14 @@
       "price": 145,
       "rating": 4.6,
       "owned": true,
-      "emoji": "🥤",
       "tags": [
         "tea",
         "chai",
         "beverage",
         "breakfast",
         "leaves"
-      ]
+      ],
+      "image": "https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=240&h=240&q=80"
     },
     {
       "name": "Sugar Free Flow 100g",
@@ -442,14 +442,14 @@
       "price": 99,
       "rating": 4.3,
       "owned": true,
-      "emoji": "🌾",
       "tags": [
         "sweetener",
         "sugar free",
         "diet",
         "tea",
         "coffee"
-      ]
+      ],
+      "image": "https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&w=240&h=240&q=80"
     },
     {
       "name": "Lay's India's Magic Masala",
@@ -457,14 +457,14 @@
       "price": 20,
       "rating": 4.5,
       "owned": true,
-      "emoji": "🍟",
       "tags": [
         "chips",
         "snacks",
         "namkeen",
         "crisps",
         "party"
-      ]
+      ],
+      "image": "https://images.unsplash.com/photo-1566478989037-eec170784d0b?auto=format&fit=crop&w=240&h=240&q=80"
     },
     {
       "name": "Kurkure Masala Munch",
@@ -472,14 +472,14 @@
       "price": 20,
       "rating": 4.4,
       "owned": true,
-      "emoji": "🍟",
       "tags": [
         "kurkure",
         "snacks",
         "crunchy",
         "namkeen",
         "party"
-      ]
+      ],
+      "image": "https://images.unsplash.com/photo-1621939514649-280e2ee25f60?auto=format&fit=crop&w=240&h=240&q=80"
     },
     {
       "name": "Haldiram's Mixture",
@@ -487,14 +487,14 @@
       "price": 55,
       "rating": 4.6,
       "owned": true,
-      "emoji": "🍟",
       "tags": [
         "mixture",
         "namkeen",
         "snacks",
         "savoury",
         "tea time"
-      ]
+      ],
+      "image": "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=240&h=240&q=80"
     },
     {
       "name": "Bingo Mad Angles",
@@ -502,14 +502,14 @@
       "price": 20,
       "rating": 4.3,
       "owned": true,
-      "emoji": "🍟",
       "tags": [
         "chips",
         "snacks",
         "bingo",
         "crisps",
         "party"
-      ]
+      ],
+      "image": "https://images.unsplash.com/photo-1599490659213-e2b9527bd087?auto=format&fit=crop&w=240&h=240&q=80"
     },
     {
       "name": "Act II Butter Popcorn",
@@ -517,14 +517,14 @@
       "price": 30,
       "rating": 4.4,
       "owned": true,
-      "emoji": "🍟",
       "tags": [
         "popcorn",
         "snacks",
         "movie snack",
         "butter",
         "party"
-      ]
+      ],
+      "image": "https://images.unsplash.com/photo-1578849278619-e73505e9610f?auto=format&fit=crop&w=240&h=240&q=80"
     },
     {
       "name": "Britannia Bourbon Pack",
@@ -532,14 +532,14 @@
       "price": 30,
       "rating": 4.5,
       "owned": true,
-      "emoji": "🍟",
       "tags": [
         "biscuits",
         "chocolate biscuits",
         "snacks",
         "tea time",
         "cookies"
-      ]
+      ],
+      "image": "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=240&h=240&q=80"
     },
     {
       "name": "Parle-G Gluco Biscuits",
@@ -547,14 +547,14 @@
       "price": 10,
       "rating": 4.6,
       "owned": true,
-      "emoji": "🍟",
       "tags": [
         "biscuits",
         "parle-g",
         "snacks",
         "tea time",
         "glucose"
-      ]
+      ],
+      "image": "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=240&h=240&q=80"
     },
     {
       "name": "Uncle Chipps Spicy Treat",
@@ -562,14 +562,14 @@
       "price": 20,
       "rating": 4.3,
       "owned": true,
-      "emoji": "🍟",
       "tags": [
         "chips",
         "snacks",
         "spicy",
         "crisps",
         "party"
-      ]
+      ],
+      "image": "https://images.unsplash.com/photo-1613919113640-25732ec5d86f?auto=format&fit=crop&w=240&h=240&q=80"
     },
     {
       "name": "Amul Vanilla Cup",
@@ -577,14 +577,14 @@
       "price": 35,
       "rating": 4.5,
       "owned": false,
-      "emoji": "🍦",
       "tags": [
         "ice cream",
         "vanilla",
         "dessert",
         "frozen",
         "sweet"
-      ]
+      ],
+      "image": "https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=240&h=240&q=80"
     },
     {
       "name": "Kwality Walls Cornetto",
@@ -592,14 +592,14 @@
       "price": 50,
       "rating": 4.4,
       "owned": false,
-      "emoji": "🍦",
       "tags": [
         "ice cream",
         "cornetto",
         "cone",
         "dessert",
         "frozen"
-      ]
+      ],
+      "image": "https://images.unsplash.com/photo-1501443762994-82bd5dace89a?auto=format&fit=crop&w=240&h=240&q=80"
     },
     {
       "name": "Mother Dairy Choco Bar",
@@ -607,14 +607,14 @@
       "price": 40,
       "rating": 4.3,
       "owned": false,
-      "emoji": "🍦",
       "tags": [
         "ice cream",
         "chocolate",
         "dessert",
         "bar",
         "frozen"
-      ]
+      ],
+      "image": "https://images.unsplash.com/photo-1488900124595-978c2e75c7fd?auto=format&fit=crop&w=240&h=240&q=80"
     },
     {
       "name": "Havmor Cassata Slice",
@@ -622,14 +622,14 @@
       "price": 60,
       "rating": 4.6,
       "owned": false,
-      "emoji": "🍦",
       "tags": [
         "ice cream",
         "cassata",
         "dessert",
         "slice",
         "frozen"
-      ]
+      ],
+      "image": "https://images.unsplash.com/photo-1567206563064-6f60f40a2b57?auto=format&fit=crop&w=240&h=240&q=80"
     },
     {
       "name": "Baskin Robbins Scoop Pack",
@@ -637,14 +637,14 @@
       "price": 149,
       "rating": 4.7,
       "owned": false,
-      "emoji": "🍦",
       "tags": [
         "ice cream",
         "premium",
         "dessert",
         "scoop",
         "frozen"
-      ]
+      ],
+      "image": "https://images.unsplash.com/photo-1497034823373-d963a89f4e1c?auto=format&fit=crop&w=240&h=240&q=80"
     },
     {
       "name": "Amul Butterscotch Tub 500ml",
@@ -652,14 +652,14 @@
       "price": 120,
       "rating": 4.5,
       "owned": false,
-      "emoji": "🍦",
       "tags": [
         "ice cream",
         "butterscotch",
         "tub",
         "dessert",
         "frozen"
-      ]
+      ],
+      "image": "https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=240&h=240&q=80"
     },
     {
       "name": "Magnum Almond",
@@ -667,14 +667,14 @@
       "price": 80,
       "rating": 4.6,
       "owned": false,
-      "emoji": "🍦",
       "tags": [
         "ice cream",
         "magnum",
         "almond",
         "dessert",
         "premium"
-      ]
+      ],
+      "image": "https://images.unsplash.com/photo-1497034823373-d963a89f4e1c?auto=format&fit=crop&w=240&h=240&q=80"
     },
     {
       "name": "Vadilal Rajbhog Cup",
@@ -682,14 +682,14 @@
       "price": 45,
       "rating": 4.4,
       "owned": false,
-      "emoji": "🍦",
       "tags": [
         "ice cream",
         "rajbhog",
         "dessert",
         "indian",
         "frozen"
-      ]
+      ],
+      "image": "https://images.unsplash.com/photo-1501443762994-82bd5dace89a?auto=format&fit=crop&w=240&h=240&q=80"
     },
     {
       "name": "Crocin Advance Strip",
@@ -697,14 +697,14 @@
       "price": 30,
       "rating": 4.6,
       "owned": false,
-      "emoji": "💊",
       "tags": [
         "fever",
         "cold",
         "headache",
         "paracetamol",
         "medicine"
-      ]
+      ],
+      "image": "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=240&h=240&q=80"
     },
     {
       "name": "Dolo 650 Strip",
@@ -712,14 +712,14 @@
       "price": 35,
       "rating": 4.7,
       "owned": false,
-      "emoji": "💊",
       "tags": [
         "fever",
         "pain relief",
         "paracetamol",
         "headache",
         "medicine"
-      ]
+      ],
+      "image": "https://images.unsplash.com/photo-1471867245382-b1e3b3bf407d?auto=format&fit=crop&w=240&h=240&q=80"
     },
     {
       "name": "Vicks VapoRub 25ml",
@@ -727,14 +727,14 @@
       "price": 99,
       "rating": 4.5,
       "owned": false,
-      "emoji": "💊",
       "tags": [
         "cold",
         "cough",
         "congestion",
         "vapour rub",
         "medicine"
-      ]
+      ],
+      "image": "https://images.unsplash.com/photo-1631549916768-4119b2e5f926?auto=format&fit=crop&w=240&h=240&q=80"
     },
     {
       "name": "Benadryl Cough Syrup",
@@ -742,14 +742,14 @@
       "price": 115,
       "rating": 4.3,
       "owned": false,
-      "emoji": "💊",
       "tags": [
         "cough",
         "syrup",
         "cold",
         "throat",
         "medicine"
-      ]
+      ],
+      "image": "https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&w=240&h=240&q=80"
     },
     {
       "name": "Strepsils Honey Lemon",
@@ -757,14 +757,14 @@
       "price": 40,
       "rating": 4.4,
       "owned": false,
-      "emoji": "💊",
       "tags": [
         "sore throat",
         "lozenges",
         "cold",
         "cough",
         "medicine"
-      ]
+      ],
+      "image": "https://images.unsplash.com/photo-1550572017-edd951aa8f72?auto=format&fit=crop&w=240&h=240&q=80"
     },
     {
       "name": "Cetirizine 10mg Strip",
@@ -772,14 +772,14 @@
       "price": 18,
       "rating": 4.5,
       "owned": false,
-      "emoji": "💊",
       "tags": [
         "allergy",
         "antihistamine",
         "itching",
         "cold",
         "medicine"
-      ]
+      ],
+      "image": "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=240&h=240&q=80"
     },
     {
       "name": "Volini Gel 30g",
@@ -787,14 +787,14 @@
       "price": 125,
       "rating": 4.4,
       "owned": false,
-      "emoji": "💊",
       "tags": [
         "pain relief",
         "muscle pain",
         "sprain",
         "gel",
         "medicine"
-      ]
+      ],
+      "image": "https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=240&h=240&q=80"
     },
     {
       "name": "Digene Gel Mint",
@@ -802,14 +802,14 @@
       "price": 85,
       "rating": 4.3,
       "owned": false,
-      "emoji": "💊",
       "tags": [
         "acidity",
         "antacid",
         "digestion",
         "gas",
         "medicine"
-      ]
+      ],
+      "image": "https://images.unsplash.com/photo-1631549916768-4119b2e5f926?auto=format&fit=crop&w=240&h=240&q=80"
     },
     {
       "name": "Pedigree Adult 1kg",
@@ -817,14 +817,14 @@
       "price": 220,
       "rating": 4.6,
       "owned": false,
-      "emoji": "🐕",
       "tags": [
         "dog food",
         "pet food",
         "puppy",
         "dry food",
         "kibble"
-      ]
+      ],
+      "image": "https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&w=240&h=240&q=80"
     },
     {
       "name": "Whiskas Tuna Pouch",
@@ -832,14 +832,14 @@
       "price": 45,
       "rating": 4.5,
       "owned": false,
-      "emoji": "🐕",
       "tags": [
         "cat food",
         "pet food",
         "tuna",
         "wet food",
         "kitten"
-      ]
+      ],
+      "image": "https://images.unsplash.com/photo-1574158622682-e40e69881006?auto=format&fit=crop&w=240&h=240&q=80"
     },
     {
       "name": "Drools Chicken & Egg 1kg",
@@ -847,14 +847,14 @@
       "price": 199,
       "rating": 4.4,
       "owned": false,
-      "emoji": "🐕",
       "tags": [
         "dog food",
         "pet food",
         "dry food",
         "chicken",
         "kibble"
-      ]
+      ],
+      "image": "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=240&h=240&q=80"
     },
     {
       "name": "Pet Collar Adjustable",
@@ -862,14 +862,14 @@
       "price": 149,
       "rating": 4.2,
       "owned": false,
-      "emoji": "🐕",
       "tags": [
         "pet collar",
         "dog collar",
         "accessories",
         "pet supplies",
         "leash gear"
-      ]
+      ],
+      "image": "https://images.unsplash.com/photo-1601758228041-f3b2795255f1?auto=format&fit=crop&w=240&h=240&q=80"
     },
     {
       "name": "Cat Litter 5kg",
@@ -877,14 +877,14 @@
       "price": 320,
       "rating": 4.3,
       "owned": false,
-      "emoji": "🐕",
       "tags": [
         "cat litter",
         "pet supplies",
         "litter box",
         "cats",
         "hygiene"
-      ]
+      ],
+      "image": "https://images.unsplash.com/photo-1574158622682-e40e69881006?auto=format&fit=crop&w=240&h=240&q=80"
     },
     {
       "name": "Dog Chew Bone Pack",
@@ -892,14 +892,14 @@
       "price": 99,
       "rating": 4.4,
       "owned": false,
-      "emoji": "🐕",
       "tags": [
         "dog treats",
         "chew",
         "pet snacks",
         "bones",
         "dog food"
-      ]
+      ],
+      "image": "https://images.unsplash.com/photo-1530281700549-e82e7bf110d6?auto=format&fit=crop&w=240&h=240&q=80"
     },
     {
       "name": "Me-O Kitten Food 450g",
@@ -907,14 +907,14 @@
       "price": 175,
       "rating": 4.5,
       "owned": false,
-      "emoji": "🐕",
       "tags": [
         "kitten food",
         "cat food",
         "pet food",
         "dry food",
         "cats"
-      ]
+      ],
+      "image": "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=240&h=240&q=80"
     },
     {
       "name": "Pet Shampoo 200ml",
@@ -922,14 +922,14 @@
       "price": 180,
       "rating": 4.3,
       "owned": false,
-      "emoji": "🐕",
       "tags": [
         "pet shampoo",
         "dog bath",
         "grooming",
         "pet care",
         "hygiene"
-      ]
+      ],
+      "image": "https://images.unsplash.com/photo-1601758228041-f3b2795255f1?auto=format&fit=crop&w=240&h=240&q=80"
     },
     {
       "name": "Pampers Baby Dry S (20)",
@@ -937,14 +937,14 @@
       "price": 299,
       "rating": 4.5,
       "owned": false,
-      "emoji": "🍼",
       "tags": [
         "diapers",
         "baby care",
         "nappies",
         "infant",
         "pampers"
-      ]
+      ],
+      "image": "https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?auto=format&fit=crop&w=240&h=240&q=80"
     },
     {
       "name": "Huggies Wonder Pants M",
@@ -952,14 +952,14 @@
       "price": 349,
       "rating": 4.4,
       "owned": false,
-      "emoji": "🍼",
       "tags": [
         "diapers",
         "baby pants",
         "nappies",
         "infant",
         "baby care"
-      ]
+      ],
+      "image": "https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?auto=format&fit=crop&w=240&h=240&q=80"
     },
     {
       "name": "Johnson's Baby Soap",
@@ -967,14 +967,14 @@
       "price": 65,
       "rating": 4.6,
       "owned": false,
-      "emoji": "🍼",
       "tags": [
         "baby soap",
         "bath",
         "infant",
         "gentle soap",
         "baby care"
-      ]
+      ],
+      "image": "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?auto=format&fit=crop&w=240&h=240&q=80"
     },
     {
       "name": "Himalaya Baby Lotion 200ml",
@@ -982,14 +982,14 @@
       "price": 175,
       "rating": 4.5,
       "owned": false,
-      "emoji": "🍼",
       "tags": [
         "baby lotion",
         "moisturiser",
         "infant",
         "skin care",
         "baby care"
-      ]
+      ],
+      "image": "https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=240&h=240&q=80"
     },
     {
       "name": "Cerelac Wheat Apple 300g",
@@ -997,14 +997,14 @@
       "price": 255,
       "rating": 4.4,
       "owned": false,
-      "emoji": "🍼",
       "tags": [
         "baby food",
         "cerelac",
         "cereal",
         "weaning",
         "infant"
-      ]
+      ],
+      "image": "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=240&h=240&q=80"
     },
     {
       "name": "Baby Wipes Soft Pack",
@@ -1012,14 +1012,14 @@
       "price": 99,
       "rating": 4.3,
       "owned": false,
-      "emoji": "🍼",
       "tags": [
         "baby wipes",
         "wipes",
         "diapering",
         "infant",
         "hygiene"
-      ]
+      ],
+      "image": "https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?auto=format&fit=crop&w=240&h=240&q=80"
     },
     {
       "name": "Harpic Power Plus 1L",
@@ -1027,14 +1027,14 @@
       "price": 185,
       "rating": 4.6,
       "owned": false,
-      "emoji": "🧴",
       "tags": [
         "toilet cleaner",
         "bathroom",
         "disinfectant",
         "cleaning",
         "harpic"
-      ]
+      ],
+      "image": "https://images.unsplash.com/photo-1585421514738-01798e348b17?auto=format&fit=crop&w=240&h=240&q=80"
     },
     {
       "name": "Lizol Disinfectant 975ml",
@@ -1042,14 +1042,14 @@
       "price": 199,
       "rating": 4.5,
       "owned": false,
-      "emoji": "🧴",
       "tags": [
         "floor cleaner",
         "disinfectant",
         "lizol",
         "home cleaning",
         "germ kill"
-      ]
+      ],
+      "image": "https://images.unsplash.com/photo-1563453392212-326f5e854473?auto=format&fit=crop&w=240&h=240&q=80"
     },
     {
       "name": "Vim Dishwash Gel 750ml",
@@ -1057,14 +1057,14 @@
       "price": 145,
       "rating": 4.5,
       "owned": false,
-      "emoji": "🧴",
       "tags": [
         "dishwash",
         "kitchen",
         "soap",
         "utensils",
         "cleaning"
-      ]
+      ],
+      "image": "https://images.unsplash.com/photo-1563453392212-326f5e854473?auto=format&fit=crop&w=240&h=240&q=80"
     },
     {
       "name": "Surf Excel Matic 1kg",
@@ -1072,14 +1072,14 @@
       "price": 220,
       "rating": 4.6,
       "owned": false,
-      "emoji": "🧴",
       "tags": [
         "detergent",
         "laundry",
         "washing powder",
         "clothes",
         "cleaning"
-      ]
+      ],
+      "image": "https://images.unsplash.com/photo-1610557892470-55d9e80c0bce?auto=format&fit=crop&w=240&h=240&q=80"
     },
     {
       "name": "Colin Glass Cleaner 500ml",
@@ -1087,14 +1087,14 @@
       "price": 99,
       "rating": 4.4,
       "owned": false,
-      "emoji": "🧴",
       "tags": [
         "glass cleaner",
         "windows",
         "spray",
         "shine",
         "cleaning"
-      ]
+      ],
+      "image": "https://images.unsplash.com/photo-1628177142898-93e36e4e3a50?auto=format&fit=crop&w=240&h=240&q=80"
     },
     {
       "name": "Scotch-Brite Scrub Pad (3)",
@@ -1102,14 +1102,14 @@
       "price": 45,
       "rating": 4.3,
       "owned": false,
-      "emoji": "🧴",
       "tags": [
         "scrubber",
         "kitchen",
         "utensils",
         "cleaning",
         "pad"
-      ]
+      ],
+      "image": "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=240&h=240&q=80"
     },
     {
       "name": "Domex Floor Cleaner 1L",
@@ -1117,14 +1117,14 @@
       "price": 165,
       "rating": 4.4,
       "owned": false,
-      "emoji": "🧴",
       "tags": [
         "floor cleaner",
         "disinfectant",
         "home cleaning",
         "bathroom",
         "germs"
-      ]
+      ],
+      "image": "https://images.unsplash.com/photo-1585421514738-01798e348b17?auto=format&fit=crop&w=240&h=240&q=80"
     },
     {
       "name": "Hit Flying Insect Killer",
@@ -1132,14 +1132,450 @@
       "price": 189,
       "rating": 4.5,
       "owned": false,
-      "emoji": "🧴",
       "tags": [
         "insect killer",
         "mosquito",
         "spray",
         "pest control",
         "hit"
-      ]
+      ],
+      "image": "https://images.unsplash.com/photo-1628177142898-93e36e4e3a50?auto=format&fit=crop&w=240&h=240&q=80"
+    },
+    {
+      "name": "Haldiram's Gulab Jamun",
+      "category": "Sweets & mithai",
+      "price": 180,
+      "rating": 4.6,
+      "owned": false,
+      "tags": [
+        "mithai",
+        "gulab jamun",
+        "sweet",
+        "festival"
+      ],
+      "image": "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=240&h=240&q=80"
+    },
+    {
+      "name": "Kaju Katli Box 250g",
+      "category": "Sweets & mithai",
+      "price": 320,
+      "rating": 4.7,
+      "owned": false,
+      "tags": [
+        "mithai",
+        "kaju katli",
+        "sweet",
+        "gift"
+      ],
+      "image": "https://images.unsplash.com/photo-1571115177098-24ec42ed204d?auto=format&fit=crop&w=240&h=240&q=80"
+    },
+    {
+      "name": "Motichoor Ladoo Pack",
+      "category": "Sweets & mithai",
+      "price": 220,
+      "rating": 4.5,
+      "owned": false,
+      "tags": [
+        "ladoo",
+        "mithai",
+        "sweet",
+        "festival"
+      ],
+      "image": "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=240&h=240&q=80"
+    },
+    {
+      "name": "Premium Mixed Dry Fruit Box",
+      "category": "Dry fruits & gifting",
+      "price": 499,
+      "rating": 4.6,
+      "owned": false,
+      "tags": [
+        "dry fruit",
+        "gift",
+        "cashew",
+        "almond"
+      ],
+      "image": "https://images.unsplash.com/photo-1599599810769-bcde5a160d32?auto=format&fit=crop&w=240&h=240&q=80"
+    },
+    {
+      "name": "Roasted Cashew 200g",
+      "category": "Dry fruits & gifting",
+      "price": 280,
+      "rating": 4.5,
+      "owned": false,
+      "tags": [
+        "cashew",
+        "dry fruit",
+        "snack"
+      ],
+      "image": "https://images.unsplash.com/photo-1599599810769-bcde5a160d32?auto=format&fit=crop&w=240&h=240&q=80"
+    },
+    {
+      "name": "Dates Gift Pack",
+      "category": "Dry fruits & gifting",
+      "price": 350,
+      "rating": 4.4,
+      "owned": false,
+      "tags": [
+        "dates",
+        "gift",
+        "dry fruit"
+      ],
+      "image": "https://images.unsplash.com/photo-1577003832333-69bf066e760b?auto=format&fit=crop&w=240&h=240&q=80"
+    },
+    {
+      "name": "Clay Diya Set (12)",
+      "category": "Diyas & decor",
+      "price": 149,
+      "rating": 4.5,
+      "owned": false,
+      "tags": [
+        "diya",
+        "decor",
+        "diwali",
+        "festival"
+      ],
+      "image": "https://images.unsplash.com/photo-1605649487212-47bdab064df7?auto=format&fit=crop&w=240&h=240&q=80"
+    },
+    {
+      "name": "LED String Lights 5m",
+      "category": "Diyas & decor",
+      "price": 299,
+      "rating": 4.4,
+      "owned": false,
+      "tags": [
+        "lights",
+        "decor",
+        "diwali"
+      ],
+      "image": "https://images.unsplash.com/photo-1512389142860-9c449e58a543?auto=format&fit=crop&w=240&h=240&q=80"
+    },
+    {
+      "name": "Rangoli Colour Pack",
+      "category": "Diyas & decor",
+      "price": 99,
+      "rating": 4.3,
+      "owned": false,
+      "tags": [
+        "rangoli",
+        "decor",
+        "festival"
+      ],
+      "image": "https://images.unsplash.com/photo-1605649487212-47bdab064df7?auto=format&fit=crop&w=240&h=240&q=80"
+    },
+    {
+      "name": "Paper Plate Pack (50)",
+      "category": "Disposable plates & cups",
+      "price": 120,
+      "rating": 4.4,
+      "owned": false,
+      "tags": [
+        "plate",
+        "disposable",
+        "party"
+      ],
+      "image": "https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=240&h=240&q=80"
+    },
+    {
+      "name": "Paper Cup Pack (25)",
+      "category": "Disposable plates & cups",
+      "price": 90,
+      "rating": 4.3,
+      "owned": false,
+      "tags": [
+        "cup",
+        "disposable",
+        "party"
+      ],
+      "image": "https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=240&h=240&q=80"
+    },
+    {
+      "name": "Bio Cutlery Set",
+      "category": "Disposable plates & cups",
+      "price": 110,
+      "rating": 4.2,
+      "owned": false,
+      "tags": [
+        "cutlery",
+        "disposable",
+        "party"
+      ],
+      "image": "https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=240&h=240&q=80"
+    },
+    {
+      "name": "Cadbury Hot Chocolate",
+      "category": "Hot beverages",
+      "price": 145,
+      "rating": 4.6,
+      "owned": false,
+      "tags": [
+        "hot chocolate",
+        "beverage",
+        "rain"
+      ],
+      "image": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=240&h=240&q=80"
+    },
+    {
+      "name": "Nescafe Classic 50g",
+      "category": "Hot beverages",
+      "price": 165,
+      "rating": 4.5,
+      "owned": false,
+      "tags": [
+        "coffee",
+        "beverage",
+        "hot"
+      ],
+      "image": "https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=240&h=240&q=80"
+    },
+    {
+      "name": "Taj Mahal Tea 250g",
+      "category": "Hot beverages",
+      "price": 210,
+      "rating": 4.5,
+      "owned": false,
+      "tags": [
+        "tea",
+        "beverage",
+        "hot"
+      ],
+      "image": "https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=240&h=240&q=80"
+    },
+    {
+      "name": "Compact Fold Umbrella",
+      "category": "Umbrellas",
+      "price": 349,
+      "rating": 4.4,
+      "owned": false,
+      "tags": [
+        "umbrella",
+        "rain"
+      ],
+      "image": "https://images.unsplash.com/photo-1515694346937-94d85e41e6f0?auto=format&fit=crop&w=240&h=240&q=80"
+    },
+    {
+      "name": "Auto Open Umbrella",
+      "category": "Umbrellas",
+      "price": 449,
+      "rating": 4.3,
+      "owned": false,
+      "tags": [
+        "umbrella",
+        "rain"
+      ],
+      "image": "https://images.unsplash.com/photo-1515694346937-94d85e41e6f0?auto=format&fit=crop&w=240&h=240&q=80"
+    },
+    {
+      "name": "Kids Cartoon Umbrella",
+      "category": "Umbrellas",
+      "price": 299,
+      "rating": 4.2,
+      "owned": false,
+      "tags": [
+        "umbrella",
+        "kids",
+        "rain"
+      ],
+      "image": "https://images.unsplash.com/photo-1515694346937-94d85e41e6f0?auto=format&fit=crop&w=240&h=240&q=80"
+    },
+    {
+      "name": "Knorr Classic Tomato Soup",
+      "category": "Instant soup",
+      "price": 55,
+      "rating": 4.5,
+      "owned": false,
+      "tags": [
+        "soup",
+        "tomato",
+        "instant",
+        "rain"
+      ],
+      "image": "https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=240&h=240&q=80"
+    },
+    {
+      "name": "Knorr Sweet Corn Soup",
+      "category": "Instant soup",
+      "price": 55,
+      "rating": 4.4,
+      "owned": false,
+      "tags": [
+        "soup",
+        "corn",
+        "instant"
+      ],
+      "image": "https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=240&h=240&q=80"
+    },
+    {
+      "name": "Maggi Hot & Sour Soup",
+      "category": "Instant soup",
+      "price": 50,
+      "rating": 4.3,
+      "owned": false,
+      "tags": [
+        "soup",
+        "maggi",
+        "instant"
+      ],
+      "image": "https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=240&h=240&q=80"
+    },
+    {
+      "name": "Haldiram's Aloo Bhujia",
+      "category": "Fried snacks",
+      "price": 55,
+      "rating": 4.6,
+      "owned": false,
+      "tags": [
+        "bhujia",
+        "namkeen",
+        "fried",
+        "rain"
+      ],
+      "image": "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=240&h=240&q=80"
+    },
+    {
+      "name": "Bikano Moong Dal",
+      "category": "Fried snacks",
+      "price": 60,
+      "rating": 4.5,
+      "owned": false,
+      "tags": [
+        "moong dal",
+        "namkeen",
+        "fried"
+      ],
+      "image": "https://images.unsplash.com/photo-1621939514649-280e2ee25f60?auto=format&fit=crop&w=240&h=240&q=80"
+    },
+    {
+      "name": "Haldiram's Navratan Mix",
+      "category": "Fried snacks",
+      "price": 70,
+      "rating": 4.4,
+      "owned": false,
+      "tags": [
+        "mixture",
+        "namkeen",
+        "fried"
+      ],
+      "image": "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=240&h=240&q=80"
+    },
+    {
+      "name": "Kellogg's Corn Flakes",
+      "category": "Breakfast cereal",
+      "price": 199,
+      "rating": 4.5,
+      "owned": false,
+      "tags": [
+        "cereal",
+        "cornflakes",
+        "breakfast"
+      ],
+      "image": "https://images.unsplash.com/photo-1521483451569-e33803c03380?auto=format&fit=crop&w=240&h=240&q=80"
+    },
+    {
+      "name": "Quaker Oats 400g",
+      "category": "Breakfast cereal",
+      "price": 175,
+      "rating": 4.6,
+      "owned": false,
+      "tags": [
+        "oats",
+        "cereal",
+        "breakfast"
+      ],
+      "image": "https://images.unsplash.com/photo-1517673403257-1e0e007f7dbd?auto=format&fit=crop&w=240&h=240&q=80"
+    },
+    {
+      "name": "Kellogg's Chocos",
+      "category": "Breakfast cereal",
+      "price": 185,
+      "rating": 4.4,
+      "owned": false,
+      "tags": [
+        "chocos",
+        "cereal",
+        "breakfast"
+      ],
+      "image": "https://images.unsplash.com/photo-1521483451569-e33803c03380?auto=format&fit=crop&w=240&h=240&q=80"
+    },
+    {
+      "name": "Real Mixed Fruit Juice 1L",
+      "category": "Fresh juice",
+      "price": 110,
+      "rating": 4.4,
+      "owned": false,
+      "tags": [
+        "juice",
+        "fruit",
+        "breakfast"
+      ],
+      "image": "https://images.unsplash.com/photo-1622597467836-f3285f2131b8?auto=format&fit=crop&w=240&h=240&q=80"
+    },
+    {
+      "name": "Tropicana Orange 1L",
+      "category": "Fresh juice",
+      "price": 125,
+      "rating": 4.5,
+      "owned": false,
+      "tags": [
+        "orange",
+        "juice",
+        "breakfast"
+      ],
+      "image": "https://images.unsplash.com/photo-1622597467836-f3285f2131b8?auto=format&fit=crop&w=240&h=240&q=80"
+    },
+    {
+      "name": "Paper Boat Aamras",
+      "category": "Fresh juice",
+      "price": 40,
+      "rating": 4.3,
+      "owned": false,
+      "tags": [
+        "aamras",
+        "juice",
+        "drink"
+      ],
+      "image": "https://images.unsplash.com/photo-1622597467836-f3285f2131b8?auto=format&fit=crop&w=240&h=240&q=80"
+    },
+    {
+      "name": "Horlicks Classic Malt",
+      "category": "Health drinks",
+      "price": 289,
+      "rating": 4.6,
+      "owned": false,
+      "tags": [
+        "horlicks",
+        "malt",
+        "health drink",
+        "breakfast"
+      ],
+      "image": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=240&h=240&q=80"
+    },
+    {
+      "name": "Bournvita 500g",
+      "category": "Health drinks",
+      "price": 245,
+      "rating": 4.5,
+      "owned": false,
+      "tags": [
+        "bournvita",
+        "malt",
+        "health drink",
+        "chocolate"
+      ],
+      "image": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=240&h=240&q=80"
+    },
+    {
+      "name": "Complan Royale Chocolate",
+      "category": "Health drinks",
+      "price": 310,
+      "rating": 4.4,
+      "owned": false,
+      "tags": [
+        "complan",
+        "health drink",
+        "breakfast"
+      ],
+      "image": "https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=240&h=240&q=80"
     }
   ]
 }
