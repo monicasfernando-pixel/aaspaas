@@ -1,3 +1,4 @@
+import BrandMark from "@/components/BrandMark";
 import PhoneSim from "@/components/PhoneSim";
 
 const BULLETS = [
@@ -21,11 +22,8 @@ export default function Home() {
       <div className="flex w-full max-w-[1100px] flex-col items-center gap-10 lg:flex-row lg:items-center lg:gap-12">
         {/* Left — pitch */}
         <section className="w-full max-w-md lg:w-[45%] lg:max-w-none lg:shrink-0">
-          <h1 className="text-[42px] font-bold leading-none tracking-tight text-[#1C1C1C] sm:text-[48px]">
-            <span className="text-[#0C831F]" aria-hidden>
-              ✦{" "}
-            </span>
-            Aaspaas
+          <h1 className="text-[48px] leading-none tracking-tight sm:text-[56px]">
+            <BrandMark />
           </h1>
           <p className="mt-4 text-[17px] font-medium leading-snug text-[#1C1C1C]/85">
             Your search bar knows what your neighbourhood is buying.

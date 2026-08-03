@@ -1,6 +1,7 @@
 "use client";
 
 import AddOrStepper from "./AddOrStepper";
+import BrandMark from "./BrandMark";
 import type { DemandItem, CatalogItem } from "./types";
 
 const TINT: Record<string, string> = {
@@ -58,7 +59,9 @@ export default function BottomSheet({
       />
       <div className="relative z-10 max-h-full animate-sheet-up overflow-y-auto rounded-t-2xl bg-white px-4 pb-6 pt-3 shadow-xl">
         <div className="mx-auto mb-3 h-1 w-10 rounded-full bg-zinc-300" />
-        <p className="mb-1.5 text-[11px] font-semibold text-[#0C831F]">✦ Aaspaas</p>
+        <p className="mb-1.5 text-[13px]">
+          <BrandMark />
+        </p>
         <p className="text-[13px] font-medium leading-snug text-[#1C1C1C]">
           {demand.sentence}
         </p>

@@ -5,6 +5,7 @@ import demandData from "@/data/demand.json";
 import catalogData from "@/data/catalog.json";
 import AddOrStepper from "./AddOrStepper";
 import BottomSheet from "./BottomSheet";
+import BrandMark from "./BrandMark";
 import IosKeyboard from "./IosKeyboard";
 import type {
   DemandItem,
@@ -404,6 +405,15 @@ export default function PhoneSim() {
     setActiveDemand(null);
   }
 
+  function leaveSearchToHome() {
+    setQuery("");
+    setActiveDemand(null);
+    setNetLoading(false);
+    setNetResult(null);
+    setNetLogged(false);
+    setScreen("home");
+  }
+
   function qtyOf(name: string) {
     return cart.find((i) => i.name === name)?.qty ?? 0;
   }
@@ -579,10 +589,7 @@ export default function PhoneSim() {
               <button
                 type="button"
                 aria-label="Back"
-                onClick={() => {
-                  setActiveDemand(null);
-                  setScreen("home");
-                }}
+                onClick={leaveSearchToHome}
                 className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white text-[18px] text-[#1C1C1C] shadow-sm ring-1 ring-zinc-200/80"
               >
                 ‹
@@ -603,7 +610,11 @@ export default function PhoneSim() {
               <>
                 <section>
                   <h2 className="text-[18px] font-bold leading-snug text-[#1C1C1C]">
-                    ✦ Aaspaas · Around you right now — Sector 47
+                    <BrandMark className="text-[20px]" />
+                    <span className="text-[18px] font-bold text-[#1C1C1C]">
+                      {" "}
+                      · Around you right now — Sector 47
+                    </span>
                   </h2>
                   <p className="mb-2 mt-1 text-[12px] text-[#7E8794]">
                     AI-picked from live neighbourhood demand
@@ -978,7 +989,8 @@ export default function PhoneSim() {
                           </p>
                           {unexplored && (
                             <p className="mt-1 text-[10px] font-medium leading-snug text-[#0C831F]">
-                              ✦ First time from {item.category} · via Aaspaas
+                              ✦ First time from {item.category} · via{" "}
+                              <BrandMark className="text-[10px]" />
                             </p>
                           )}
                         </div>
@@ -1033,8 +1045,8 @@ export default function PhoneSim() {
           </h2>
           {orderDiscovery && (
             <p className="mt-4 rounded-2xl bg-[#F4F9E0] px-4 py-3 text-[13px] font-medium leading-snug text-[#4A6B10]">
-              🎉 First time ordering from {orderDiscovery} — discovered via
-              Aaspaas
+              🎉 First time ordering from {orderDiscovery} — discovered via{" "}
+              <BrandMark className="text-[13px]" />
             </p>
           )}
           <button
