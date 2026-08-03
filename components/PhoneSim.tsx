@@ -324,11 +324,19 @@ export default function PhoneSim() {
     catalogSize?: number;
   } | null>(null);
   const [simulate, setSimulate] = useState<SimulateMode>(null);
+  const [searchFocused, setSearchFocused] = useState(false);
   const searchInputRef = useRef<HTMLInputElement>(null);
+  const restoreKeyboardRef = useRef(false);
+  const activeDemandRef = useRef<DemandItem | null>(null);
 
   const cartCount = cart.reduce((n, i) => n + i.qty, 0);
-  // Search screen keeps the keyboard up (focused empty/typing); hide for sheet / other screens.
-  const showKeyboard = screen === "search" && !activeDemand;
+  // Keyboard only while search is focused and no demand sheet is open.
+  const showKeyboard =
+    screen === "search" && searchFocused && !activeDemand;
+
+  useEffect(() => {
+    activeDemandRef.current = activeDemand;
+  }, [activeDemand]);
   const cartTotal = cart.reduce((n, i) => n + i.price * i.qty, 0);
 
   const activeContext = useMemo<DemandContext>(() => {
@@ -387,14 +395,31 @@ export default function PhoneSim() {
   }, [q, matches.length, query]);
 
   function openDemand(item: DemandItem) {
+    restoreKeyboardRef.current =
+      searchFocused ||
+      document.activeElement === searchInputRef.current ||
+      screen === "search";
+    setSearchFocused(false);
     setActiveDemand(item);
   }
 
-  useEffect(() => {
-    if (screen === "search" && !activeDemand) {
-      searchInputRef.current?.focus();
+  function closeDemandSheet() {
+    setActiveDemand(null);
+    // Keep query as-is (empty → demand rows; typed → suggestions).
+    if (restoreKeyboardRef.current) {
+      requestAnimationFrame(() => {
+        searchInputRef.current?.focus();
+        setSearchFocused(true);
+      });
     }
-  }, [screen, activeDemand]);
+  }
+
+  useEffect(() => {
+    if (screen === "search") {
+      searchInputRef.current?.focus();
+      setSearchFocused(true);
+    }
+  }, [screen]);
 
   function productsFor(item: DemandItem) {
     return catalog.filter((p) => p.category === item.category);
@@ -408,6 +433,8 @@ export default function PhoneSim() {
   function leaveSearchToHome() {
     setQuery("");
     setActiveDemand(null);
+    setSearchFocused(false);
+    restoreKeyboardRef.current = false;
     setNetLoading(false);
     setNetResult(null);
     setNetLogged(false);
@@ -490,6 +517,8 @@ export default function PhoneSim() {
     setQuery("");
     setCart([]);
     setActiveDemand(null);
+    setSearchFocused(false);
+    restoreKeyboardRef.current = false;
     setToast(null);
     setOrderDiscovery(null);
     setRecents(RECENT);
@@ -598,6 +627,15 @@ export default function PhoneSim() {
                 ref={searchInputRef}
                 value={query}
                 onChange={(e) => onQueryChange(e.target.value)}
+                onFocus={() => setSearchFocused(true)}
+                onBlur={() => {
+                  // Defer so openDemand can claim focus intent before we hide keyboard.
+                  window.setTimeout(() => {
+                    if (activeDemandRef.current) return;
+                    if (document.activeElement === searchInputRef.current) return;
+                    setSearchFocused(false);
+                  }, 0);
+                }}
                 autoFocus
                 placeholder="Search for atta, dal, coke and more"
                 className="w-full rounded-full border-0 bg-white px-4 py-2.5 text-[13px] text-[#1C1C1C] shadow-sm outline-none ring-1 ring-zinc-200/80 placeholder:text-[#7E8794] focus:ring-[#0C831F]/40"
@@ -910,17 +948,18 @@ export default function PhoneSim() {
           )}
 
           {showKeyboard && <IosKeyboard />}
-
-          {activeDemand && (
-            <BottomSheet
-              demand={activeDemand}
-              products={productsFor(activeDemand)}
-              qtyOf={qtyOf}
-              onClose={() => setActiveDemand(null)}
-              onAdjust={(p, delta) => adjustCart(p, delta, true)}
-            />
-          )}
         </div>
+      )}
+
+      {/* Demand sheet overlays the full phone frame (covers keyboard zone). */}
+      {screen === "search" && activeDemand && (
+        <BottomSheet
+          demand={activeDemand}
+          products={productsFor(activeDemand)}
+          qtyOf={qtyOf}
+          onClose={closeDemandSheet}
+          onAdjust={(p, delta) => adjustCart(p, delta, true)}
+        />
       )}
 
       {/* —— CHECKOUT —— */}
